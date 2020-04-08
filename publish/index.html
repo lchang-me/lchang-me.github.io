@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Le</title>
+    
+    <link rel="stylesheet" href="http://lchang.me/style.css">
+
+  <script>
+      function setTheme() {
+        const time = new Date();
+
+        const prev = localStorage.getItem('date');
+        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
+
+        const now = time.getTime();
+        let sunrise;
+        let sunset;
+
+        function setBodyClass() {
+          if (now > sunrise && now < sunset) return;
+          document.body.classList.add('dark');
+        }
+
+        if (date !== prev) {
+          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+            .then(res => res.json())
+            .then(data => {
+              sunrise = data.sunrise.split(':').map(Number);
+              sunset = data.sunset.split(':').map(Number);
+            })
+            .catch(() => {
+              sunrise = [7, 0];
+              sunset = [19, 0];
+            })
+            .finally(() => {
+              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+              sunset = time.setHours(sunset[0], sunset[1], 0);
+              setBodyClass();
+              localStorage.setItem('sunrise', sunrise);
+              localStorage.setItem('sunset', sunset);
+            });
+          localStorage.setItem('date', date);
+        } else {
+          sunrise = Number(localStorage.getItem('sunrise'));
+          sunset = Number(localStorage.getItem('sunset'));
+          setBodyClass();
+        }
+      }
+    </script>
+  </head>
+  <body class="list">
+    <script>
+      setTheme();
+    </script>
+    <header class="header">
+      <nav class="nav">
+        <p class="logo"><a href="http://lchang.me/">Le&#39;s Blog</a></p>
+        <ul class="menu">
+          <li>
+            <a href="/about/">About</a>
+          </li>
+          <li>
+            <a href="/publish/">Publish</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+
+<h2 id="papers">Papers</h2>
+<hr>
+<ul>
+<li>
+<p>Output feedback regulation of a class of triangular structural nonlinear systems with unknown measurement sensitivity<br>
+<em>International Journal of Systems Science</em><br>
+<code>2019-10 | journal-article</code><br>
+DOI: <a href="https://doi.org/10.1080/00207721.2019.1671529">10.1080<code>/</code>00207721.2019.1671529</a></p>
+<hr>
+</li>
+<li>
+<p>On Designing Distributed Prescribed Finite-Time Observers for Strict-Feedback Nonlinear Systems<br>
+<em>IEEE Transactions on Cybernetics</em><br>
+<code>2019 | journal-article</code><br>
+DOI: <a href="https://doi.org/10.1109/TCYB.2019.2951067">10.1109<code>/</code>TCYB.2019.2951067</a></p>
+<hr>
+</li>
+<li>
+<p>Global asymptotic stabilization for input-delay chained nonholonomic systems via the static gain approach<br>
+<em>Journal of the Franklin Institute</em><br>
+<code>2018-06 | journal-article</code><br>
+DOI: <a href="https://doi.org/10.1016/j.jfranklin.2018.03.009">10.1016<code>/</code>j.jfranklin.2018.03.009</a></p>
+<hr>
+</li>
+<li>
+<p>Decentralised regulation of nonlinear multi-agent systems with directed network topologies<br>
+<em>International Journal of Control</em><br>
+<code>2016 | journal-article</code><br>
+DOI: <a href="https://doi.org/10.1080/00207179.2016.1245868">10.1080<code>/</code>00207179.2016.1245868</a></p>
+<hr>
+</li>
+<li>
+<p>Feedback stabilization for cross triangular nonlinear systems<br>
+<em>Proceedings of the 28th Chinese Control and Decision Conference</em><br>
+<code>2016 | conference-paper</code><br>
+DOI: <a href="https://doi.org/10.1109/CCDC.2016.7531266">10.1109<code>/</code>CCDC.2016.7531266</a></p>
+<hr>
+</li>
+<li>
+<p>Adaptive state estimation for a class of system with nonlinear parametrization<br>
+<em>Proceedings of the 2015 27th Chinese Control and Decision Conference</em><br>
+<code>2015 | conference-paper</code><br>
+DOI: <a href="https://doi.org/10.1109/CCDC.2015.7162176">10.1109<code>/</code>CCDC.2015.7162176</a></p>
+<hr>
+</li>
+<li>
+<p>Leader-follower consensus of upper-triangular nonlinear multi-agent systems<br>
+<em>IEEE<code>/</code>CAA Journal of Automatica Sinica</em><br>
+<code>2014 | journal-article</code><br>
+DOI: <a href="https://doi.org/10.1109/JAS.2014.7004552">10.1109<code>/</code>JAS.2014.7004552</a></p>
+</li>
+</ul>
+</main>
+<footer class="footer">
+  <span>&copy; <a href="http://lchang.me/">Le</a></span>
+  <span>&middot;</span>
+  <span>2020</span>
+</footer>
+<script src="http://lchang.me/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+<script type="text/javascript" async
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } },
+  tex2jax: {
+    inlineMath: [[`$`,`$`], [`\\(`,`\\)`]],
+    displayMath: [[`$$`,`$$`]],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+       extensions: ["AMSmath.js", "AMSsymbols.js"] }
+}
+});
+</script>
+</style>
+</body>
+</html>
+

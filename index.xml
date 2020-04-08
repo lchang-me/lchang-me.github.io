@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Le&#39;s Blog</title>
+    <link>http://lchang.me/</link>
+    <description>Recent content on Le&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 08 Apr 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://lchang.me/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About me</title>
+      <link>http://lchang.me/about/</link>
+      <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://lchang.me/about/</guid>
+      <description>My name is Le Chang. I&#39;m a student pursing PhD degree. My research field is the distributed control technology in network control systems.
+E-mail: le@lchang.me</description>
+    </item>
+    
+    <item>
+      <title>Design of the distributed observers</title>
+      <link>http://lchang.me/distributedobserver/</link>
+      <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://lchang.me/distributedobserver/</guid>
+      <description>Consider the distributed observer design problem for nonlinear systems. The framework can be represented as below. 
+Problem formulate  The plant system is modelled as $$ \dot{X}=AX+F(t,X) $$ where $ X=(x_1,x_2,\ldots,x_n)^T \in R^n $, matrix $A {\in R^{n\times n}}$ and nonlinear term $F(t,X):[0, T)\times R^n\rightarrow R^n$ have the following form $$A=\begin{pmatrix} 0 &amp;amp; \delta_{1} &amp;amp; \cdots &amp;amp; 0 \\
+\vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots \\
+0 &amp;amp; 0 &amp;amp; \cdots &amp;amp; \delta_{n-1} \\</description>
+    </item>
+    
+    <item>
+      <title>Publish</title>
+      <link>http://lchang.me/publish/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://lchang.me/publish/</guid>
+      <description>Papers    Output feedback regulation of a class of triangular structural nonlinear systems with unknown measurement sensitivity
+International Journal of Systems Science
+2019-10 | journal-article
+DOI: 10.1080/00207721.2019.1671529
+   On Designing Distributed Prescribed Finite-Time Observers for Strict-Feedback Nonlinear Systems
+IEEE Transactions on Cybernetics
+2019 | journal-article
+DOI: 10.1109/TCYB.2019.2951067
+   Global asymptotic stabilization for input-delay chained nonholonomic systems via the static gain approach
+Journal of the Franklin Institute</description>
+    </item>
+    
+  </channel>
+</rss>
