@@ -1,4 +1,13 @@
+/*
+ * Paper
+ * A simple, clean, flexible Hugo theme
+ * https://github.com/nanxiaobei/hugo-paper
+ * Designed by MR.LEE (https://mrlee.me/)
+ * Updated in 2019.10.17
+ */
 
+/* Theme
+-------------------------------------------------- */
 :root {
   --gap: 24px;
   --content-gap: 40px;
@@ -133,7 +142,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  max-width: calc(var(--nav-width));
+  max-width: calc(var(--nav-width) + var(--gap) * 2);
   margin-left: auto;
   margin-right: auto;
 }
