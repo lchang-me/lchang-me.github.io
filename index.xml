@@ -22,10 +22,10 @@ E-mail: le@lchang.me</description>
     
     <item>
       <title>Design of the distributed observers</title>
-      <link>http://lchang.me/distributedobserver/</link>
+      <link>http://lchang.me/distributedobserver/distributedobserver/</link>
       <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://lchang.me/distributedobserver/</guid>
+      <guid>http://lchang.me/distributedobserver/distributedobserver/</guid>
       <description>Consider the distributed observer design problem for nonlinear systems. The framework can be represented as below. 
 Problem formulate  The plant system is modelled as $$ \dot{X}=AX+F(t,X) $$ where $ X=(x_1,x_2,\ldots,x_n)^T \in R^n $, matrix $A {\in R^{n\times n}}$ and nonlinear term $F(t,X):[0, T)\times R^n\rightarrow R^n$ have the following form $$A=\begin{pmatrix} 0 &amp;amp; \delta_{1} &amp;amp; \cdots &amp;amp; 0 \\
 \vdots &amp;amp; \vdots &amp;amp; &amp;amp; \vdots \\
