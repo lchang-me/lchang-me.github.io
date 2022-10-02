@@ -1,0 +1,1 @@
+nav{padding:10px;width:80%;margin:auto;display:block;color:var(--primary)}nav ul{list-style:none;margin-right:0;padding:0}nav ul a{color:var(--primary);text-decoration:none;font-weight:700}nav ul a:hover{text-decoration:underline}nav ul li{display:inline}svg#moon style{visibility:visible}svg#sun{visibility:hidden}

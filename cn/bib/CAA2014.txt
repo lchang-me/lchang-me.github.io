@@ -1,0 +1,10 @@
+@ARTICLE{LeCAA2014,
+  author={Zhang, Chenghui and Chang, Le and Zhang, Xianfu},
+  journal={IEEE/CAA Journal of Automatica Sinica}, 
+  title={Leader-follower consensus of upper-triangular nonlinear multi-agent systems}, 
+  year={2014},
+  volume={1},
+  number={2},
+  pages={210-217},
+  doi={10.1109/JAS.2014.7004552}
+}
