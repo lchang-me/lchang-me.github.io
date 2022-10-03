@@ -6,6 +6,7 @@
 {{ $style2 := resources.Get "sass/nave.scss" | resources.ToCSS | resources.Minify }}
 <link rel="stylesheet" href="{{ $style2.Permalink }}">
 
+<meta name="format-detection" content="telephone=no" />
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
