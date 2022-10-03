@@ -1,0 +1,19 @@
+<blockquote class="padsing">
+  <p class="auto">{{ .Get "author" | markdownify}}, <a style="font-style:italic">{{ .Get "title" }}</a>, 
+  <a style="font-weight: bold;">{{ .Get "pub" }}</a>, ({{ .Get "year" }}), 
+  {{ if (.Get "volume") }}
+    Volume {{ .Get "volume" }},
+  {{ end }}
+  {{ if (.Get "number") }}
+  Issue {{ .Get "number" }},
+  {{ end }}
+  Pages {{ .Get "pages" }}.
+  <br>
+    doi: {{ .Get "doi" }}
+    <div style="float: right;">
+      <a class="badge-link" href="{{ .Get "ref" }}"> Link</a>
+      &nbsp;
+      <a class="badge-bib" href="{{ .Get "bib" }}">BIB</a>
+    </div> 
+  </p>
+</blockquote>

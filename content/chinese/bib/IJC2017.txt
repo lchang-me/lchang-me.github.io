@@ -1,0 +1,10 @@
+@article{LeIJC2017,
+author = {Le Chang and Chenghui Zhang and Xianfu Zhang and Xiandong Chen},
+title = {Decentralised regulation of nonlinear multi-agent systems with directed network topologies},
+journal = {International Journal of Control},
+volume = {90},
+number = {11},
+pages = {2338-2348},
+year  = {2017},
+doi = {10.1080/00207179.2016.1245868},
+}

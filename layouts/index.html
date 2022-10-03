@@ -1,0 +1,55 @@
+{{ define "main" }}
+{{ $head := .Site.GetPage "/part" }}
+{{ $pages:= $head.Resources.ByType "page" }}
+
+{{ $asset := resources.Get "image/my.jpg" }}
+{{ $img := $asset.Fit "400x600" }}
+
+<article class="entry">
+<div class="row">
+    <div class="col-4"><img class="image" src="{{ $img.RelPermalink }}">
+    </div>
+    <div class="col00"></div>
+    <div class="col-8">
+        <div class="aside">
+            <ul>
+                <li><h1><a> {{ .Params.name}}</a> </h1></li>
+                <li><h3><a>{{ .Params.position}}</a> </h3></li>
+                <li><h3><a href='{{ .Params.dweb}}'>{{ .Params.department}}</a></h3></li>
+                <li><h3><a href='{{ .Params.website}}'>{{ .Params.school}}</a>, {{ .Params.place}}</h3></li>
+                <li><h3> Email:<a href="mailto:{{ .Params.email}}">{{ .Params.email}}</a></h3></li>
+                <li><h3> Tel.: {{ .Params.tel}}</h3></li>
+                    
+            </ul>
+        </div>
+    </div>
+</div>
+</article>
+
+
+
+<div class="extrabar"></div>
+
+        <article class="centesde">
+        {{ range where $pages ".Params.header_mu" "eq" true }}
+            {{ if (eq .Params.type "item") }}
+            <article id='{{ anchorize .Title }}'>
+                <div style="height:5vmin"></div>    
+                <h1>{{ .Title }}</h1>
+                <hr>
+                <item>{{ .Content }}</item>
+
+            </article>           
+            {{ else }}
+            <article id='{{ anchorize .Title }}'>
+                <div style="height:5vmin"></div>    
+                <h1>{{ .Title }}</h1>
+                <hr>
+                <a>{{ .Content }}</a>
+            </article>
+            {{ end }}
+        {{ end }}
+        </article>
+    
+
+{{ end }}

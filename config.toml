@@ -1,0 +1,19 @@
+
+
+title = "Le's Blog"
+description = 'This is my blog!'
+copyright = 'Copyright &copy;  Le  &nbsp;&bull;&nbsp; 2019-{year}'
+baseURL= "https://www.lchang.me/"
+
+enableEmoji=true
+
+
+[languages]
+  [languages.en]
+    contentDir = 'content/english'
+    languageName = 'En'
+    title = "Home"
+  [languages.cn]
+    contentDir = 'content/chinese'
+    languageName = 'Cn'
+    title = "首页"

@@ -1,0 +1,88 @@
+
+<!doctype html>
+<html class="">
+
+    {{partial "meta.html" .}}
+<body>
+    <div id="jump_to_top">
+    </div>
+        <header>
+        {{partial "header.html" .}}
+        <div style="height:20vmin"></div>
+    </header>
+
+
+    {{partial "nav.html" .}}
+    <main>
+        {{block "main" .}}
+        {{end}}
+    </main>
+
+    <footer>
+        {{partial "footer.html" .}}
+    </footer>
+    
+</body>
+
+<script>
+    function setTheme(themeName){
+        localStorage.setItem('theme', themeName);
+        document.documentElement.className =themeName;
+    }
+    
+
+    function toggleTheme(){
+        if (localStorage.getItem('theme') == 'theme-dark'){
+            setTheme('theme-light');
+            document.getElementById("moon").style.visibility = "hidden";
+            document.getElementById("sun").style.visibility = "visible";
+        } else{
+            setTheme('theme-dark');
+            document.getElementById("sun").style.visibility = "hidden";
+            document.getElementById("moon").style.visibility = "visible";
+        }
+    }
+
+    (function(){
+        if (localStorage.getItem('theme')=='theme-dark'){
+            setTheme('theme-dark');
+            document.getElementById("sun").style.visibility = "hidden";
+            document.getElementById("moon").style.visibility = "visible";
+        } else{
+            setTheme('theme-light');
+            document.getElementById("moon").style.visibility = "hidden";
+            document.getElementById("sun").style.visibility = "visible";
+        }
+    })();
+</script>
+
+
+<script>
+$(window).scroll(function() {     
+    var scroll = $(window).scrollTop();
+    if (scroll < 150) {
+        if (scroll <30){
+        $("nav").css({position: "absolute", top: "10px" ,background:"var(--hljs-bg)"});
+        document.getElementById("jssector").style.background = "var(--hljs-bg)";
+
+    } else
+        {
+        $("nav").css({position: "absolute", top: scroll-20 , background:"var(--hljs-bg)"});
+        document.getElementById("jssector").style.background = "var(--hljs-bg)";
+        }
+    }
+    else {
+        if (scroll < 680){
+        $("nav").css({position: "fixed", top: -680+scroll, background:"var(--theme)"});
+        document.getElementById("jssector").style.background = " linear-gradient(to bottom,var(--theme), var(--hljs-bg))";
+
+        }
+        else{
+        $("nav").css({position: "fixed", top: 0, background:"var(--theme)"});
+        document.getElementById("jssector").style.background = " linear-gradient(to bottom,var(--theme), var(--hljs-bg))";
+        }
+    }
+});
+</script>
+
+</html>
