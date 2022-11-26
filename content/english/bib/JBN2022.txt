@@ -1,0 +1,8 @@
+@ARTICLE{LeJBN2022,  
+author={Chang, Le and Fu, Cheng},  
+journal={International Journal of Robust and Nonlinear Control},   
+title={Designing a stabilizing controller for discrete‐time nonlinear feedforward systems with unknown input saturation},   
+year={2022},  
+pages={1-12},  
+doi={10.1002/rnc.6502}
+}

@@ -1,8 +1,20 @@
 ---
-title: "发表论文"
+title: "Publications"
 weight: 2
 header_mu: true
 ---
+
+{{<item 
+author="**Chang, L.**, & Fu, C." 
+year="2022" 
+title= "Designing a stabilizing control for discrete-time nonlinear feedforward systems with unknown input saturation" 
+pub="International Journal Of Robust And Nonlinear Control" 
+pages="1-12"
+doi="10.1002/rnc.6502"
+ref="https://doi.org/10.1002/rnc.6502"
+bib="/bib/JBN2022.txt"
+>}}
+
 {{<item 
 author="**Chang, L.**, Han, Q.-L., Ge, X., Zhang, C., & Zhang, X." 
 year="2021" 
