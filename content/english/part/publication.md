@@ -6,15 +6,26 @@ header_mu: true
 
 {{<item 
 author="**Chang, L.**, & Fu, C." 
-year="2022" 
+year="2023" 
 title= "Designing a stabilizing control for discrete-time nonlinear feedforward systems with unknown input saturation" 
-pub="International Journal Of Robust And Nonlinear Control" 
-pages="1-12"
+pub="International Journal Of Robust and Nonlinear Control" 
+pages="2078-2089"
 doi="10.1002/rnc.6502"
 ref="https://doi.org/10.1002/rnc.6502"
 bib="/bib/JBN2022.txt"
 >}}
-
+  
+{{<item 
+author="Zhang, C., **Chang, L.**, Xing, L. & Zhang, X." 
+year="2023" 
+title= "Fixed-time stabilization of a class of strict-feedback nonlinear systems via dynamic gain feedback control" 
+pub="IEEE/CAA Journal of Automatica Sinica" 
+pages="403-410"
+doi="10.1109/JAS.2023.123408"
+ref="https://doi.org/10.1109/JAS.2023.123408"
+bib="/bib/CAA2023.txt"
+>}}
+  
 {{<item 
 author="**Chang, L.**, Han, Q.-L., Ge, X., Zhang, C., & Zhang, X." 
 year="2021" 
