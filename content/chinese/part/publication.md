@@ -5,14 +5,29 @@ header_mu: true
 ---
 
 {{<item 
+author="**Chang, L.**, Shao, X., & Zhang, D." 
+year="2023" 
+title= "Stabilization for a class of strict-feedback nonlinear systems via the PWM control law" 
+pub="Journal of the Franklin Institute" 
+pages="8550-8568"
+volume="360"
+number="12"
+doi="10.1016/j.jfranklin.2023.06.027"
+ref="https://doi.org/10.1016/j.jfranklin.2023.06.027"
+bib="/bib/JFI2023.txt"
+>}}
+
+{{<item 
 author="**Chang, L.**, & Fu, C." 
-year="2022" 
+year="2023" 
 title= "Designing a stabilizing control for discrete-time nonlinear feedforward systems with unknown input saturation" 
 pub="International Journal Of Robust And Nonlinear Control" 
-pages="1-12"
+pages="2078-2089"
+volume="33"
+number="3"
 doi="10.1002/rnc.6502"
 ref="https://doi.org/10.1002/rnc.6502"
-bib="/bib/JBN2022.txt"
+bib="/bib/JBN2023.txt"
 >}}
 
 {{<item 
