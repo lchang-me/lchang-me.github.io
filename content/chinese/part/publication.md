@@ -4,6 +4,18 @@ weight: 2
 header_mu: true
 ---
 
+
+ {{<item 
+author="**Chang, L.**, Ge, X., Ding, D., & Fu, C." 
+year="Early Access" 
+title= "Stabilization for a class of feedforward nonlinear systems Via pulsewidth-modulated controllers" 
+pub="IEEE Transactions on Automatic Control" 
+doi="10.1109/TAC.2023.3317373"
+ref="https://doi.org/10.1109/TAC.2023.3317373"
+bib="/bib/TAC2023.txt"
+>}}
+
+
 {{<item 
 author="**Chang, L.**, Shao, X., & Zhang, D." 
 year="2023" 
