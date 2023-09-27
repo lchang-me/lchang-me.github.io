@@ -1,12 +1,12 @@
 ---
 photo: "image/my.jpg"
 name : '常乐 博士'
-position: '博士后研究员'
-department: '航空航天学院'
-dweb: 'https://www.aero.sjtu.edu.cn/'
-school: '上海交通大学'
-website: 'https://sjtu.edu.cn/'
+position: '讲师，助理研究员'
+department: '电气工程学院'
+dweb: 'https://dqxy.shiep.edu.cn'
+school: '上海电力大学'
+website: 'https://www.shiep.edu.cn'
 place: '上海, 中国'
-email: 'le@lchang.me'
+email: 'lchang@shiep.edu.cn, le@lchang.me'
 tel: '+86-13162997351'
 ---
