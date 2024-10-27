@@ -5,15 +5,25 @@ header_mu: true
 ---
 
 
+{{<item 
+author="**Chang, L.**, Fu, C. & Zhang, H." 
+year="accept" 
+title= "Global sampled-data output feedback stabilization for nonlinear systems via intermittent hold" 
+pub="IEEE/CAA Journal of Automatica Sinica"
+>}}
+
 
 {{<item 
 author="**Chang, L.**, Ge, X., Ding, D., & Fu, C." 
-year="Early Access" 
+year="2024" 
 title= "Stabilization for a class of feedforward nonlinear systems via pulsewidth-modulated controllers" 
-pub="IEEE Transactions on Automatic Control" 
+pub="IEEE Transactions on Automatic Control"
+pages="2075-2082"
+volume="69"
+number="3"
 doi="10.1109/TAC.2023.3317373"
 ref="https://doi.org/10.1109/TAC.2023.3317373"
-bib="/bib/TAC2023.txt"
+bib="/bib/TAC2024.txt"
 >}}
 
 
