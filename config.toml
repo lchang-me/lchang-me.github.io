@@ -4,7 +4,7 @@ title = "Le's Blog"
 description = 'This is my blog!'
 copyright = 'Copyright &copy;  Le  &nbsp;&bull;&nbsp; 2019-{year}'
 baseURL= "https://www.lchang.me/"
-
+disableKinds = ['taxonomy', 'term']
 enableEmoji=true
 
 
