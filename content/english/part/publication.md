@@ -6,10 +6,34 @@ header_mu: true
 
 
 {{<item 
+author="**Chang, L.** & Zhang, X." 
+year="Published Online" 
+title= "Global Output Regulation for Uncertain Feedforward Nonlinear Systems With Unknown Nonlinear Growth Rate" 
+pub="International Journal of Robust and Nonlinear Control"
+doi="10.1002/rnc.7862"
+ref="https://doi.org/10.1002/rnc.7862"
+bib="/bib/RNC2025.txt/"
+>}}
+
+{{<item 
 author="**Chang, L.**, Fu, C. & Zhang, H." 
-year="accept" 
+year="Published Online" 
+title= "Global output feedback stabilisation for nonlinear systems via a switching control gain approach" 
+pub="International Journal of Control"
+doi="10.1080/00207179.2024.2436959"
+ref="https://doi.org/10.1080/00207179.2024.2436959"
+bib="/bib/IJC2025.txt"
+>}}
+
+
+{{<item 
+author="**Chang, L.**, Fu, C. & Zhang, H." 
+year="Published Online" 
 title= "Global sampled-data output feedback stabilization for nonlinear systems via intermittent hold" 
 pub="IEEE/CAA Journal of Automatica Sinica"
+doi="10.1109/JAS.2024.000000"
+ref="https://doi.org/10.1109/JAS.2024.000000"
+bib="/bib/JAS2025.txt"
 >}}
 
 
