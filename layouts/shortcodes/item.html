@@ -7,7 +7,9 @@
   {{ if (.Get "number") }}
   Issue {{ .Get "number" }},
   {{ end }}
+  {{ if (.Get "pages") }}
   Pages {{ .Get "pages" }}.
+    {{end}}
   <br>
     doi: {{ .Get "doi" }}
     <div style="float: right;">
