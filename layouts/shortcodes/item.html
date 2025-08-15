@@ -22,8 +22,10 @@
     doi: {{ .Get "doi" }}
     <div style="float: right;">
       <a class="badge-link" href="{{ .Get "ref" }}"> Link</a>
+      {{if ( .Get "bib")}}
       &nbsp;
       <a class="badge-bib" href="{{ .Get "bib" }}">BIB</a>
+      {{end}}
     </div> 
   </p>
 </blockquote>
