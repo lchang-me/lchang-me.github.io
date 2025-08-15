@@ -5,14 +5,14 @@
     Volume {{ .Get "volume" }},
   {{ end }}
   {{ if (.Get "number") }}
-  Issue {{ .Get "number" }},
+    Issue {{ .Get "number" }},
   {{ end }}
   {{ if (.Get "pages") }}
-  Pages {{ .Get "pages" }}.
-    {{end}}
-      {{ if (.Get "online") }}
-  Published Online.
-    {{end}}
+    Pages {{ .Get "pages" }}.
+  { end }}
+  {{ if (.Get "online") }}
+    Published Online.
+  {{end}}
   <br>
     doi: {{ .Get "doi" }}
     <div style="float: right;">
