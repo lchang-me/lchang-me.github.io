@@ -1,6 +1,12 @@
 <blockquote class="padsing" style="text-decoration: none;">
   <p class="auto">{{ .Get "author" | markdownify}}, <a style="font-style:italic">{{ .Get "title" }}</a>, 
-  <a style="font-weight: bold;">{{ .Get "pub" }}</a>, ({{ .Get "year" }}), 
+  <a style="font-weight: bold;">{{ .Get "pub" }}</a>, 
+  {{ if (.Get "year") }}
+    ({{ .Get "year" }}), 
+  {{ end }}
+  {{ if ( .Get "data"}}
+    {{ .Get "data"}}
+  {{ end }}
   {{ if (.Get "volume") }}
     Volume {{ .Get "volume" }},
   {{ end }}
