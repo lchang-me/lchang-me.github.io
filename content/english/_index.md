@@ -7,7 +7,7 @@ dweb: 'https://dqxy.shiep.edu.cn'
 school: 'Shanghai University of Electric Power'
 website: 'https://www.shiep.edu.cn'
 place: 'Shanghai, China'
-email: 'lchang@shiep.edu.cn, le@lchang.me'
+email: 'lchang@shiep.edu.cn'
 tel: '+86-13162997351'
 wechat: 'lchangme'
 ---
