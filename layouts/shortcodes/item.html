@@ -9,7 +9,9 @@
   {{ end }}
   {{ if (.Get "pages") }}
     Pages {{ .Get "pages" }}.
-  { end }}
+  {{else}}
+  Published Online.
+  {{ end }}
   <br>
     doi: {{ .Get "doi" }}
     <div style="float: right;">
