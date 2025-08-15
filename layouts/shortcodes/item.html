@@ -15,7 +15,8 @@
   {{ end }}
   {{ if (.Get "pages") }}
     Pages {{ .Get "pages" }}.
-  {{else}}
+  {{end}}
+    {{if (.Get "online")}}
   Published Online.
   {{ end }}
   <br>
