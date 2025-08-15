@@ -8,7 +8,8 @@ header_mu: true
 {{<item 
 author="Pan, W., Feng, Y. **Chang, L.** & Zhang, X." 
 year="Published Online" 
-title= "Global Stabilization of Strict-Feedback Nonlinear Systems With Application to Circuits: An Intermittent Impulsive Control Approach" 
+title= "Global stabilization of strict-feedback nonlinear systems with application to circuits: An intermittent impulsive control approach"
+oneline=""
 pub="IEEE Control Systems Letters"
 doi="10.1109/LCSYS.2025.3595567"
 ref="https://doi.org/10.1109/LCSYS.2025.3595567"
@@ -19,8 +20,9 @@ ref="https://doi.org/10.1109/LCSYS.2025.3595567"
 {{<item 
 author="**Chang, L.** & Zhang, X." 
 year="Published Online" 
-title= "Global Output Regulation for Uncertain Feedforward Nonlinear Systems With Unknown Nonlinear Growth Rate" 
+title= "Global output regulation for uncertain feedforward nonlinear systems with unknown nonlinear growth rate" 
 pub="International Journal of Robust and Nonlinear Control"
+oneline=""
 doi="10.1002/rnc.7862"
 ref="https://doi.org/10.1002/rnc.7862"
 bib="/bib/RNC2025.txt/"
@@ -31,6 +33,7 @@ author="**Chang, L.**, Fu, C. & Zhang, H."
 year="Published Online" 
 title= "Global output feedback stabilisation for nonlinear systems via a switching control gain approach" 
 pub="International Journal of Control"
+oneline=""
 doi="10.1080/00207179.2024.2436959"
 ref="https://doi.org/10.1080/00207179.2024.2436959"
 bib="/bib/IJC2025.txt"
@@ -39,9 +42,9 @@ bib="/bib/IJC2025.txt"
 
 {{<item 
 author="**Chang, L.**, Fu, C. & Zhang, H." 
-year="Published Online" 
 title= "Global sampled-data output feedback stabilization for nonlinear systems via intermittent hold" 
 pub="IEEE/CAA Journal of Automatica Sinica"
+oneline=""
 doi="10.1109/JAS.2024.000000"
 ref="https://doi.org/10.1109/JAS.2024.000000"
 bib="/bib/JAS2025.txt"
@@ -63,20 +66,19 @@ bib="/bib/TAC2024.txt"
 
 {{<item 
 author="Fu, C., Zhang, Z., **Chang, L.**, & Zhang, G." 
-year="2024" 
 title= "DC-link voltage control of three-phase AC/DC converters with current constraints" 
 pub="2024 3rd Conference on Fully Actuated System Theory and Applications (FASTA)" 
-data="10-12 May 2024"
+year="10-12 May 2024"
 doi="10.1109/FASTA61401.2024.10595355"
 ref="https://doi.org/10.1109/FASTA61401.2024.10595355"
 >}}
->
+
+
 {{<item 
 author="Fu, C., Zhang, Z., **Chang, L.**,  Zhang, G., & Wang, X." 
-year="2024" 
 title= "DC-link voltage control of voltage source converters via a fully actuated system approach" 
 pub="2024 China Automation Congress (CAC)" 
-data="01-03 November 2024"
+year="01-03 November 2024"
 doi="10.1109/CAC63892.2024.10865336"
 ref="https://doi.org/10.1109/CAC63892.2024.10865336"
 >}}
