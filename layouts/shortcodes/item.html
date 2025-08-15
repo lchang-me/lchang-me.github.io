@@ -11,7 +11,7 @@
     Pages {{ .Get "pages" }}.
   { end }}
   {{ if (.Get "online") }}
-    Published Online.
+    Published Online {{ .Get "online" }}.
   {{end}}
   <br>
     doi: {{ .Get "doi" }}
