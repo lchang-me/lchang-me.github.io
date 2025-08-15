@@ -7,6 +7,6 @@ dweb: 'https://dqxy.shiep.edu.cn'
 school: '上海电力大学'
 website: 'https://www.shiep.edu.cn'
 place: '上海, 中国'
-email: 'lchang@shiep.edu.cn, le@lchang.me'
+email: 'lchang@shiep.edu.cn'
 tel: '+86-13162997351'
 ---
