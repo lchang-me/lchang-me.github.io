@@ -11,6 +11,7 @@ title= "Global stabilization of strict-feedback nonlinear systems with applicati
 pub="IEEE Control Systems Letters"
 doi="10.1109/LCSYS.2025.3595567"
 ref="https://doi.org/10.1109/LCSYS.2025.3595567"
+online=""
 >}}
 
 
@@ -22,6 +23,7 @@ pub="International Journal of Robust and Nonlinear Control"
 doi="10.1002/rnc.7862"
 ref="https://doi.org/10.1002/rnc.7862"
 bib="/bib/RNC2025.txt/"
+online=""
 >}}
 
 {{<item 
@@ -31,6 +33,7 @@ pub="International Journal of Control"
 doi="10.1080/00207179.2024.2436959"
 ref="https://doi.org/10.1080/00207179.2024.2436959"
 bib="/bib/IJC2025.txt"
+online=""
 >}}
 
 
