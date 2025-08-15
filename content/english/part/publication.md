@@ -6,6 +6,17 @@ header_mu: true
 
 
 {{<item 
+author="Pan, W., Feng, Y. **Chang, L.** & Zhang, X." 
+year="Published Online" 
+title= "Global Stabilization of Strict-Feedback Nonlinear Systems With Application to Circuits: An Intermittent Impulsive Control Approach" 
+pub="IEEE Control Systems Letters"
+doi="10.1109/LCSYS.2025.3595567"
+ref="https://doi.org/10.1109/LCSYS.2025.3595567"
+>}}
+
+
+
+{{<item 
 author="**Chang, L.** & Zhang, X." 
 year="Published Online" 
 title= "Global Output Regulation for Uncertain Feedforward Nonlinear Systems With Unknown Nonlinear Growth Rate" 
@@ -49,6 +60,27 @@ doi="10.1109/TAC.2023.3317373"
 ref="https://doi.org/10.1109/TAC.2023.3317373"
 bib="/bib/TAC2024.txt"
 >}}
+
+{{<item 
+author="Fu, C., Zhang, Z., **Chang, L.**, & Zhang, G." 
+year="2024" 
+title= "DC-link voltage control of three-phase AC/DC converters with current constraints" 
+pub="2024 3rd Conference on Fully Actuated System Theory and Applications (FASTA)" 
+data="10-12 May 2024"
+doi="10.1109/FASTA61401.2024.10595355"
+ref="https://doi.org/10.1109/FASTA61401.2024.10595355"
+>}}
+>
+{{<item 
+author="Fu, C., Zhang, Z., **Chang, L.**,  Zhang, G., & Wang, X." 
+year="2024" 
+title= "DC-link voltage control of voltage source converters via a fully actuated system approach" 
+pub="2024 China Automation Congress (CAC)" 
+data="01-03 November 2024"
+doi="10.1109/CAC63892.2024.10865336"
+ref="https://doi.org/10.1109/CAC63892.2024.10865336"
+>}}
+
 
 
 {{<item 
