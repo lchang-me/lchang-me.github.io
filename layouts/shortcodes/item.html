@@ -2,23 +2,24 @@
   <p class="auto">{{ .Get "author" | markdownify}}, <a style="font-style:italic">{{ .Get "title" }}</a>, 
   <a style="font-weight: bold;">{{ .Get "pub" }}</a>, 
   {{ if (.Get "year") }}
-    ({{ .Get "year" }}), 
+    ({{ .Get "year" }}) 
   {{ end }}
   {{ if ( .Get "data") }}
-    {{ .Get "data"}},
+    {{ .Get "data"}}
   {{ end }}
   {{ if (.Get "volume") }}
-    Volume {{ .Get "volume" }},
+    Volume {{ .Get "volume" }}
   {{ end }}
   {{ if (.Get "number") }}
-    Issue {{ .Get "number" }},
+    Issue {{ .Get "number" }}
   {{ end }}
   {{ if (.Get "pages") }}
-    Pages {{ .Get "pages" }}.
+    Pages {{ .Get "pages" }}
   {{ end }}
-  {{if (.Get "online")}}.
-    Published Online.
+  {{if (.Get "online")}}
+    Published Online
   {{ end }}
+    .
   <br>
     doi: {{ .Get "doi" }}
     <div style="float: right;">
