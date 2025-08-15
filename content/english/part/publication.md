@@ -7,7 +7,6 @@ header_mu: true
 
 {{<item 
 author="Pan, W., Feng, Y. **Chang, L.** & Zhang, X." 
-year="Published Online" 
 title= "Global stabilization of strict-feedback nonlinear systems with application to circuits: An intermittent impulsive control approach"
 oneline=""
 pub="IEEE Control Systems Letters"
@@ -19,7 +18,6 @@ ref="https://doi.org/10.1109/LCSYS.2025.3595567"
 
 {{<item 
 author="**Chang, L.** & Zhang, X." 
-year="Published Online" 
 title= "Global output regulation for uncertain feedforward nonlinear systems with unknown nonlinear growth rate" 
 pub="International Journal of Robust and Nonlinear Control"
 oneline=""
@@ -30,7 +28,6 @@ bib="/bib/RNC2025.txt/"
 
 {{<item 
 author="**Chang, L.**, Fu, C. & Zhang, H." 
-year="Published Online" 
 title= "Global output feedback stabilisation for nonlinear systems via a switching control gain approach" 
 pub="International Journal of Control"
 oneline=""
