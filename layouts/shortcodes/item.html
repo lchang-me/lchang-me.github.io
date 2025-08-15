@@ -4,8 +4,8 @@
   {{ if (.Get "year") }}
     ({{ .Get "year" }}), 
   {{ end }}
-  {{ if ( .Get "data"}}
-    {{ .Get "data"}}
+  {{ if ( .Get "data") }}
+    {{ .Get "data"}},
   {{ end }}
   {{ if (.Get "volume") }}
     Volume {{ .Get "volume" }},
