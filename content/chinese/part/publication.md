@@ -6,10 +6,55 @@ header_mu: true
 
 
 {{<item 
+  author=“Wang, D., Yuan, Y., Song, Y., Xiao, S., & **Chang, L.**"
+  pub="IEEE Transactions on Automation Science and Engineering"
+  title="Cascade control for post-chlorine dosage during drinking water treatment under cyber attacks"
+  online="a"
+  doi="10.1109/TASE.2025.3599161"
+  ref="https://doi.org/10.1109/TASE.2025.3599161"
+  >}}
+
+
+{{<item 
+author="Pan, W., Feng, Y. **Chang, L.** & Zhang, X." 
+title= "Global stabilization of strict-feedback nonlinear systems with application to circuits: An intermittent impulsive control approach"
+pub="IEEE Control Systems Letters"
+doi="10.1109/LCSYS.2025.3595567"
+ref="https://doi.org/10.1109/LCSYS.2025.3595567"
+online="a"
+>}}
+
+
+
+{{<item 
+author="**Chang, L.** & Zhang, X." 
+title= "Global output regulation for uncertain feedforward nonlinear systems with unknown nonlinear growth rate" 
+pub="International Journal of Robust and Nonlinear Control"
+doi="10.1002/rnc.7862"
+ref="https://doi.org/10.1002/rnc.7862"
+bib="/bib/RNC2025.txt/"
+online="a"
+>}}
+
+{{<item 
 author="**Chang, L.**, Fu, C. & Zhang, H." 
-year="accept" 
+title= "Global output feedback stabilisation for nonlinear systems via a switching control gain approach" 
+pub="International Journal of Control"
+doi="10.1080/00207179.2024.2436959"
+ref="https://doi.org/10.1080/00207179.2024.2436959"
+bib="/bib/IJC2025.txt"
+online="a"
+>}}
+
+
+{{<item 
+author="**Chang, L.**, Fu, C. & Zhang, H." 
 title= "Global sampled-data output feedback stabilization for nonlinear systems via intermittent hold" 
 pub="IEEE/CAA Journal of Automatica Sinica"
+doi="10.1109/JAS.2024.000000"
+ref="https://doi.org/10.1109/JAS.2024.000000"
+bib="/bib/JAS2025.txt"
+online="a"
 >}}
 
 
@@ -26,6 +71,26 @@ ref="https://doi.org/10.1109/TAC.2023.3317373"
 bib="/bib/TAC2024.txt"
 >}}
 
+{{<item 
+author="Fu, C., Zhang, Z., **Chang, L.**, & Zhang, G." 
+title= "DC-link voltage control of three-phase AC/DC converters with current constraints" 
+pub="2024 3rd Conference on Fully Actuated System Theory and Applications (FASTA)" 
+data="10-12 May 2024"
+doi="10.1109/FASTA61401.2024.10595355"
+ref="https://doi.org/10.1109/FASTA61401.2024.10595355"
+>}}
+
+
+{{<item 
+author="Fu, C., Zhang, Z., **Chang, L.**,  Zhang, G., & Wang, X." 
+title= "DC-link voltage control of voltage source converters via a fully actuated system approach" 
+pub="2024 China Automation Congress (CAC)" 
+data="01-03 November 2024"
+doi="10.1109/CAC63892.2024.10865336"
+ref="https://doi.org/10.1109/CAC63892.2024.10865336"
+>}}
+
+
 
 {{<item 
 author="**Chang, L.**, Shao, X., & Zhang, D." 
@@ -40,11 +105,12 @@ ref="https://doi.org/10.1016/j.jfranklin.2023.06.027"
 bib="/bib/JFI2023.txt"
 >}}
 
+
 {{<item 
 author="**Chang, L.**, & Fu, C." 
 year="2023" 
 title= "Designing a stabilizing control for discrete-time nonlinear feedforward systems with unknown input saturation" 
-pub="International Journal Of Robust And Nonlinear Control" 
+pub="International Journal of Robust and Nonlinear Control" 
 pages="2078-2089"
 volume="33"
 number="3"
@@ -52,7 +118,18 @@ doi="10.1002/rnc.6502"
 ref="https://doi.org/10.1002/rnc.6502"
 bib="/bib/JBN2023.txt"
 >}}
-
+  
+{{<item 
+author="Zhang, C., **Chang, L.**, Xing, L. & Zhang, X." 
+year="2023" 
+title= "Fixed-time stabilization of a class of strict-feedback nonlinear systems via dynamic gain feedback control" 
+pub="IEEE/CAA Journal of Automatica Sinica" 
+pages="403-410"
+doi="10.1109/JAS.2023.123408"
+ref="https://doi.org/10.1109/JAS.2023.123408"
+bib="/bib/CAA2023.txt"
+>}}
+  
 {{<item 
 author="**Chang, L.**, Han, Q.-L., Ge, X., Zhang, C., & Zhang, X." 
 year="2021" 
@@ -120,7 +197,7 @@ bib="bib/IJC2017.txt"
 
 {{<item 
 author="Chen, X., Zhang, X., **Chang, L.**, & Zhang, C." 
-year="2016" 
+data="28-30 May 2016" 
 title= "Feedback stabilization for cross triangular nonlinear systems" 
 pub="2016 Chinese Control and Decision Conference (CCDC)" 
 pages="1759–1763"
@@ -131,7 +208,7 @@ bib="bib/CCSC2016.txt"
 
 {{<item 
 author="**Chang, L.**, Zhang, C., Chen, X., & Zhang, X." 
-year="2015" 
+data="23-25 May 2015" 
 title= "Adaptive state estimation for a class of system with nonlinear parametrization" 
 pub="The 27th Chinese Control and Decision Conference (2015 CCDC)" 
 pages="1610–1613"
