@@ -6,7 +6,7 @@ header_mu: true
 
 
 {{<item 
-  author=“Wang, D., Yuan, Y., Song, Y., Xiao, S., & **Chang, L.**"
+  author="Wang, D., Yuan, Y., Song, Y., Xiao, S., & **Chang, L.**"
   pub="IEEE Transactions on Automation Science and Engineering"
   title="Cascade control for post-chlorine dosage during drinking water treatment under cyber attacks"
   online="a"
