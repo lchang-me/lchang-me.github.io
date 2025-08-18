@@ -6,6 +6,16 @@ header_mu: true
 
 
 {{<item 
+  author=“Wang, D., Yuan, Y., Song, Y., Xiao, S., & **Chang, L.**"
+  pub="IEEE Transactions on Automation Science and Engineering"
+  title="Cascade control for post-chlorine dosage during drinking water treatment under cyber attacks"
+  online="a"
+  doi="10.1109/TASE.2025.3599161"
+  ref="https://doi.org/10.1109/TASE.2025.3599161"
+  >}}
+
+
+{{<item 
 author="Pan, W., Feng, Y. **Chang, L.** & Zhang, X." 
 title= "Global stabilization of strict-feedback nonlinear systems with application to circuits: An intermittent impulsive control approach"
 pub="IEEE Control Systems Letters"
