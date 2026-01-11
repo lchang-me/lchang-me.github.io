@@ -2,40 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.lchang.me/</loc>
+    <loc>http://localhost:1313/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://www.lchang.me/cn/"
+                href="http://localhost:1313/cn/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://www.lchang.me/"
-                />
-  </url><url>
-    <loc>https://www.lchang.me/categories/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://www.lchang.me/cn/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.lchang.me/categories/"
-                />
-  </url><url>
-    <loc>https://www.lchang.me/tags/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://www.lchang.me/cn/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.lchang.me/tags/"
+                href="http://localhost:1313/"
                 />
   </url>
 </urlset>

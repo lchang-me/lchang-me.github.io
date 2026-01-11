@@ -10,10 +10,30 @@ enableEmoji=true
 
 [languages]
   [languages.en]
-    contentDir = 'content/english'
     languageName = 'En'
     title = "Home"
   [languages.cn]
-    contentDir = 'content/chinese'
     languageName = 'Cn'
     title = "首页"
+
+
+[module]
+  [[module.mounts]]
+    source = "content/en"
+    target = "content"
+    lang="en"
+
+  [[module.mounts]]
+    source = "content/cn"
+    target = "content"
+    lang="cn"
+
+  [[module.mounts]]
+    source = "content/common"
+    target = "content"
+    lang="en"
+
+    [[module.mounts]]
+    source = "content/common"
+    target = "content"
+    lang="cn"

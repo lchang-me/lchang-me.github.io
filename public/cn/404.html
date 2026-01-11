@@ -2,77 +2,79 @@
 <!doctype html>
 <html class="">
 
-    <meta charset="utf-8">
+    <script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 
-<link rel="stylesheet" href="https://www.lchang.me/sass/main.min.css">
+<link rel="stylesheet" href="http://localhost:1313/sass/main.min.css">
 
 
 
-<link rel="stylesheet" href="https://www.lchang.me/sass/nave.min.css">
+<link rel="stylesheet" href="http://localhost:1313/sass/nave.min.css">
 
 <meta name="format-detection" content="telephone=no" />
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css" integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css"
+  integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js" integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js"
+  integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
-    
-    
-    <script >
-    function initTheme() {
-        if(window.localStorage.getItem('theme')) return;
-        const time = new Date();
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/auto-render.min.js"
+  integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
 
-        const prev = localStorage.getItem('date');
-        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
 
-        const now = time.getTime();
-        let sunrise;
-        let sunset;
+<script>
+  function initTheme() {
+    if (window.localStorage.getItem('theme')) return;
+    const time = new Date();
 
-        function setBodyClass() {
-          if (now > sunrise && now < sunset) {
-          setTheme('theme-light');
-          } else{
-          setTheme('theme-dark');
-          }
-        }
+    const prev = localStorage.getItem('date');
+    const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
 
-        if (date !== prev) {
-          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
-            .then(res => res.json())
-            .then(data => {
-              sunrise = data.sunrise.split(':').map(Number);
-              sunset = data.sunset.split(':').map(Number);
-            })
-            .catch(() => {
-              sunrise = [7, 0];
-              sunset = [19, 0];
-            })
-            .finally(() => {
-              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
-              sunset = time.setHours(sunset[0], sunset[1], 0);
-              setBodyClass();
-              localStorage.setItem('sunrise', sunrise);
-              localStorage.setItem('sunset', sunset);
-            });
-          localStorage.setItem('date', date);
-        } else {
-          sunrise = Number(localStorage.getItem('sunrise'));
-          sunset = Number(localStorage.getItem('sunset'));
-          setBodyClass();
-        }
+    const now = time.getTime();
+    let sunrise;
+    let sunset;
 
+    function setBodyClass() {
+      if (now > sunrise && now < sunset) {
+        setTheme('theme-light');
+      } else {
+        setTheme('theme-dark');
       }
-    </script>
+    }
 
+    if (date !== prev) {
+      fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+        .then(res => res.json())
+        .then(data => {
+          sunrise = data.sunrise.split(':').map(Number);
+          sunset = data.sunset.split(':').map(Number);
+        })
+        .catch(() => {
+          sunrise = [7, 0];
+          sunset = [19, 0];
+        })
+        .finally(() => {
+          sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+          sunset = time.setHours(sunset[0], sunset[1], 0);
+          setBodyClass();
+          localStorage.setItem('sunrise', sunrise);
+          localStorage.setItem('sunset', sunset);
+        });
+      localStorage.setItem('date', date);
+    } else {
+      sunrise = Number(localStorage.getItem('sunrise'));
+      sunset = Number(localStorage.getItem('sunset'));
+      setBodyClass();
+    }
+
+  }
+</script>
 <body>
     <div id="jump_to_top">
     </div>
@@ -105,7 +107,7 @@
     <li><a href="#%e4%b8%aa%e4%ba%ba%e7%ae%80%e4%bb%8b">个人简介</a></li>
     
     &nbsp;&nbsp;&nbsp;
-    <li><a href="#%e5%8f%91%e8%a1%a8%e8%ae%ba%e6%96%87">发表论文</a></li>
+    <li><a href="#publications">Publications</a></li>
     
 
 </ul>
@@ -173,8 +175,8 @@
       </svg>
   </li>
   &nbsp;&nbsp;
-  <li><a href="https://www.lchang.me/cn/">Cn</a></li>
-  &bull;  <li><a href="https://www.lchang.me/">En</a></li>
+  <li><a href="http://localhost:1313/cn/">Cn</a></li>
+  &bull;  <li><a href="http://localhost:1313/">En</a></li>
   
  </ul>
 </div>
@@ -210,7 +212,7 @@
   <footer>
     <div style="width: 100%; height:5vmin; padding:0; "></div>
 
-    Copyright ©  Le   •  2019-2022 
+    Copyright ©  Le   •  2019-2026 
 
     <div style="width: 100%; height:5vmin; padding:0; "></div>
 

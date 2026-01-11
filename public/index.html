@@ -2,83 +2,85 @@
 <!doctype html>
 <html class="">
 
-    <meta charset="utf-8">
+    <script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 
-<link rel="stylesheet" href="https://www.lchang.me/sass/main.min.css">
+<link rel="stylesheet" href="http://localhost:1313/sass/main.min.css">
 
 
 
-<link rel="stylesheet" href="https://www.lchang.me/sass/nave.min.css">
+<link rel="stylesheet" href="http://localhost:1313/sass/nave.min.css">
 
 <meta name="format-detection" content="telephone=no" />
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css" integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css"
+  integrity="sha384-bYdxxUwYipFNohQlHt0bjN/LCpueqWz13HufFEV1SUatKs1cm4L6fFgCi1jT643X" crossorigin="anonymous">
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js" integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.js"
+  integrity="sha384-Qsn9KnoKISj6dI8g7p1HBlNpVx0I8p1SvlwOldgi3IorMle61nQy4zEahWYtljaz" crossorigin="anonymous"></script>
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
-    
-    
-    <script >
-    function initTheme() {
-        if(window.localStorage.getItem('theme')) return;
-        const time = new Date();
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/auto-render.min.js"
+  integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
 
-        const prev = localStorage.getItem('date');
-        const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
 
-        const now = time.getTime();
-        let sunrise;
-        let sunset;
+<script>
+  function initTheme() {
+    if (window.localStorage.getItem('theme')) return;
+    const time = new Date();
 
-        function setBodyClass() {
-          if (now > sunrise && now < sunset) {
-          setTheme('theme-light');
-          } else{
-          setTheme('theme-dark');
-          }
-        }
+    const prev = localStorage.getItem('date');
+    const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
 
-        if (date !== prev) {
-          fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
-            .then(res => res.json())
-            .then(data => {
-              sunrise = data.sunrise.split(':').map(Number);
-              sunset = data.sunset.split(':').map(Number);
-            })
-            .catch(() => {
-              sunrise = [7, 0];
-              sunset = [19, 0];
-            })
-            .finally(() => {
-              sunrise = time.setHours(sunrise[0], sunrise[1], 0);
-              sunset = time.setHours(sunset[0], sunset[1], 0);
-              setBodyClass();
-              localStorage.setItem('sunrise', sunrise);
-              localStorage.setItem('sunset', sunset);
-            });
-          localStorage.setItem('date', date);
-        } else {
-          sunrise = Number(localStorage.getItem('sunrise'));
-          sunset = Number(localStorage.getItem('sunset'));
-          setBodyClass();
-        }
+    const now = time.getTime();
+    let sunrise;
+    let sunset;
 
+    function setBodyClass() {
+      if (now > sunrise && now < sunset) {
+        setTheme('theme-light');
+      } else {
+        setTheme('theme-dark');
       }
-    </script>
+    }
 
+    if (date !== prev) {
+      fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
+        .then(res => res.json())
+        .then(data => {
+          sunrise = data.sunrise.split(':').map(Number);
+          sunset = data.sunset.split(':').map(Number);
+        })
+        .catch(() => {
+          sunrise = [7, 0];
+          sunset = [19, 0];
+        })
+        .finally(() => {
+          sunrise = time.setHours(sunrise[0], sunrise[1], 0);
+          sunset = time.setHours(sunset[0], sunset[1], 0);
+          setBodyClass();
+          localStorage.setItem('sunrise', sunrise);
+          localStorage.setItem('sunset', sunset);
+        });
+      localStorage.setItem('date', date);
+    } else {
+      sunrise = Number(localStorage.getItem('sunrise'));
+      sunset = Number(localStorage.getItem('sunset'));
+      setBodyClass();
+    }
+
+  }
+</script>
 <body>
     <div id="jump_to_top">
     </div>
         <header>
         <head>
-	<meta name="generator" content="Hugo 0.106.0">
+	<meta name="generator" content="Hugo 0.154.4">
     <title></title>
     <link rel="icon" type="image/png" href="apple-touch-icon.png" sizes="32x32">
 
@@ -174,8 +176,8 @@
       </svg>
   </li>
   &nbsp;&nbsp;
-  <li><a href="https://www.lchang.me/cn/">Cn</a></li>
-  &bull;  <li><a href="https://www.lchang.me/">En</a></li>
+  <li><a href="http://localhost:1313/cn/">Cn</a></li>
+  &bull;  <li><a href="http://localhost:1313/">En</a></li>
   
  </ul>
 </div>
@@ -204,17 +206,17 @@
 
 <article class="entry">
 <div class="row">
-    <div class="col-4"><img class="image" src="/image/my_hud57c6994f4b46ee32fe51ac468464c25_241834_400x600_fit_q75_box.jpg">
+    <div class="col-4"><img class="image" src="/image/my_hu_8e89d29dc19ef6aa.jpg">
     </div>
     <div class="col00"></div>
     <div class="col-8">
         <div class="aside">
             <ul>
                 <li><h1><a> Dr Le Chang</a> </h1></li>
-                <li><h3><a>Postdoctral researcher</a> </h3></li>
-                <li><h3><a href='https://www.aero.sjtu.edu.cn/'>School of Aeronautics and Astronautics</a></h3></li>
-                <li><h3><a href='https://en.sjtu.edu.cn/'>Shanghai Jiao Tong University</a>, Shanghai, China</h3></li>
-                <li><h3> Email:<a href="mailto:le@lchang.me">le@lchang.me</a></h3></li>
+                <li><h3><a>Research Associate</a> </h3></li>
+                <li><h3><a href='https://dqxy.shiep.edu.cn'>College of Electric Power Engineering</a></h3></li>
+                <li><h3><a href='https://www.shiep.edu.cn'>Shanghai University of Electric Power</a>, Shanghai, China</h3></li>
+                <li><h3> Email:<a href="mailto:lchang@shiep.edu.cn">lchang@shiep.edu.cn</a></h3></li>
                 <li><h3 id="phone-text"> Tel.: &#43;86-13162997351</h3></li>
                     
             </ul>
@@ -245,151 +247,484 @@
                 <h1>Publications</h1>
                 <hr>
                 <a><blockquote class="padsing" style="text-decoration: none;">
+  <p class="auto">Wang, D., Yuan, Y., Song, Y., Xiao, S., &amp; <strong>Chang, L.</strong>, <a style="font-style:italic">Cascade control for post-chlorine dosage during drinking water treatment under cyber attacks</a>, 
+  <a style="font-weight: bold;">IEEE Transactions on Automation Science and Engineering</a>, 
+  
+  
+  
+  
+  
+  
+    Published Online.
+  
+  <br>
+    doi: 10.1109/TASE.2025.3599161
+    <div style="float: right;">
+      <a class="badge-link" href="https://doi.org/10.1109/TASE.2025.3599161"> Link</a>
+      
+    </div> 
+  </p>
+</blockquote>
+
+<blockquote class="padsing" style="text-decoration: none;">
+  <p class="auto">Pan, W., Feng, Y. <strong>Chang, L.</strong> &amp; Zhang, X., <a style="font-style:italic">Global stabilization of strict-feedback nonlinear systems with application to circuits: An intermittent impulsive control approach</a>, 
+  <a style="font-weight: bold;">IEEE Control Systems Letters</a>, 
+  
+  
+  
+  
+  
+  
+    Published Online.
+  
+  <br>
+    doi: 10.1109/LCSYS.2025.3595567
+    <div style="float: right;">
+      <a class="badge-link" href="https://doi.org/10.1109/LCSYS.2025.3595567"> Link</a>
+      
+    </div> 
+  </p>
+</blockquote>
+
+<blockquote class="padsing" style="text-decoration: none;">
+  <p class="auto"><strong>Chang, L.</strong> &amp; Zhang, X., <a style="font-style:italic">Global output regulation for uncertain feedforward nonlinear systems with unknown nonlinear growth rate</a>, 
+  <a style="font-weight: bold;">International Journal of Robust and Nonlinear Control</a>, 
+  
+  
+  
+  
+  
+  
+    Published Online.
+  
+  <br>
+    doi: 10.1002/rnc.7862
+    <div style="float: right;">
+      <a class="badge-link" href="https://doi.org/10.1002/rnc.7862"> Link</a>
+      
+      &nbsp;
+      <a class="badge-bib" href="/bib/RNC2025.txt/">BIB</a>
+      
+    </div> 
+  </p>
+</blockquote>
+
+<blockquote class="padsing" style="text-decoration: none;">
+  <p class="auto"><strong>Chang, L.</strong>, Fu, C. &amp; Zhang, H., <a style="font-style:italic">Global output feedback stabilisation for nonlinear systems via a switching control gain approach</a>, 
+  <a style="font-weight: bold;">International Journal of Control</a>, 
+  
+  
+  
+  
+  
+  
+    Published Online.
+  
+  <br>
+    doi: 10.1080/00207179.2024.2436959
+    <div style="float: right;">
+      <a class="badge-link" href="https://doi.org/10.1080/00207179.2024.2436959"> Link</a>
+      
+      &nbsp;
+      <a class="badge-bib" href="/bib/IJC2025.txt">BIB</a>
+      
+    </div> 
+  </p>
+</blockquote>
+
+<blockquote class="padsing" style="text-decoration: none;">
+  <p class="auto"><strong>Chang, L.</strong>, Fu, C. &amp; Zhang, H., <a style="font-style:italic">Global sampled-data output feedback stabilization for nonlinear systems via intermittent hold</a>, 
+  <a style="font-weight: bold;">IEEE/CAA Journal of Automatica Sinica</a>, 
+  
+  
+  
+  
+  
+  
+    Published Online.
+  
+  <br>
+    doi: 10.1109/JAS.2024.000000
+    <div style="float: right;">
+      <a class="badge-link" href="https://doi.org/10.1109/JAS.2024.000000"> Link</a>
+      
+      &nbsp;
+      <a class="badge-bib" href="/bib/JAS2025.txt">BIB</a>
+      
+    </div> 
+  </p>
+</blockquote>
+
+<blockquote class="padsing" style="text-decoration: none;">
+  <p class="auto"><strong>Chang, L.</strong>, Ge, X., Ding, D., &amp; Fu, C., <a style="font-style:italic">Stabilization for a class of feedforward nonlinear systems via pulsewidth-modulated controllers</a>, 
+  <a style="font-weight: bold;">IEEE Transactions on Automatic Control</a>, 
+  
+    (2024), 
+  
+  
+  
+    Volume 69,
+  
+  
+    Issue 3,
+  
+  
+    Pages 2075-2082.
+  
+  
+  <br>
+    doi: 10.1109/TAC.2023.3317373
+    <div style="float: right;">
+      <a class="badge-link" href="https://doi.org/10.1109/TAC.2023.3317373"> Link</a>
+      
+      &nbsp;
+      <a class="badge-bib" href="/bib/TAC2024.txt">BIB</a>
+      
+    </div> 
+  </p>
+</blockquote>
+
+<blockquote class="padsing" style="text-decoration: none;">
+  <p class="auto">Fu, C., Zhang, Z., <strong>Chang, L.</strong>, &amp; Zhang, G., <a style="font-style:italic">DC-link voltage control of three-phase AC/DC converters with current constraints</a>, 
+  <a style="font-weight: bold;">2024 3rd Conference on Fully Actuated System Theory and Applications (FASTA)</a>, 
+  
+  
+    10-12 May 2024.
+  
+  
+  
+  
+  
+  <br>
+    doi: 10.1109/FASTA61401.2024.10595355
+    <div style="float: right;">
+      <a class="badge-link" href="https://doi.org/10.1109/FASTA61401.2024.10595355"> Link</a>
+      
+    </div> 
+  </p>
+</blockquote>
+
+<blockquote class="padsing" style="text-decoration: none;">
+  <p class="auto">Fu, C., Zhang, Z., <strong>Chang, L.</strong>,  Zhang, G., &amp; Wang, X., <a style="font-style:italic">DC-link voltage control of voltage source converters via a fully actuated system approach</a>, 
+  <a style="font-weight: bold;">2024 China Automation Congress (CAC)</a>, 
+  
+  
+    01-03 November 2024.
+  
+  
+  
+  
+  
+  <br>
+    doi: 10.1109/CAC63892.2024.10865336
+    <div style="float: right;">
+      <a class="badge-link" href="https://doi.org/10.1109/CAC63892.2024.10865336"> Link</a>
+      
+    </div> 
+  </p>
+</blockquote>
+
+<blockquote class="padsing" style="text-decoration: none;">
+  <p class="auto"><strong>Chang, L.</strong>, Shao, X., &amp; Zhang, D., <a style="font-style:italic">Stabilization for a class of strict-feedback nonlinear systems via the PWM control law</a>, 
+  <a style="font-weight: bold;">Journal of the Franklin Institute</a>, 
+  
+    (2023), 
+  
+  
+  
+    Volume 360,
+  
+  
+    Issue 12,
+  
+  
+    Pages 8550-8568.
+  
+  
+  <br>
+    doi: 10.1016/j.jfranklin.2023.06.027
+    <div style="float: right;">
+      <a class="badge-link" href="https://doi.org/10.1016/j.jfranklin.2023.06.027"> Link</a>
+      
+      &nbsp;
+      <a class="badge-bib" href="/bib/JFI2023.txt">BIB</a>
+      
+    </div> 
+  </p>
+</blockquote>
+
+<blockquote class="padsing" style="text-decoration: none;">
+  <p class="auto"><strong>Chang, L.</strong>, &amp; Fu, C., <a style="font-style:italic">Designing a stabilizing control for discrete-time nonlinear feedforward systems with unknown input saturation</a>, 
+  <a style="font-weight: bold;">International Journal of Robust and Nonlinear Control</a>, 
+  
+    (2023), 
+  
+  
+  
+    Volume 33,
+  
+  
+    Issue 3,
+  
+  
+    Pages 2078-2089.
+  
+  
+  <br>
+    doi: 10.1002/rnc.6502
+    <div style="float: right;">
+      <a class="badge-link" href="https://doi.org/10.1002/rnc.6502"> Link</a>
+      
+      &nbsp;
+      <a class="badge-bib" href="/bib/JBN2023.txt">BIB</a>
+      
+    </div> 
+  </p>
+</blockquote>
+
+<blockquote class="padsing" style="text-decoration: none;">
+  <p class="auto">Zhang, C., <strong>Chang, L.</strong>, Xing, L. &amp; Zhang, X., <a style="font-style:italic">Fixed-time stabilization of a class of strict-feedback nonlinear systems via dynamic gain feedback control</a>, 
+  <a style="font-weight: bold;">IEEE/CAA Journal of Automatica Sinica</a>, 
+  
+    (2023), 
+  
+  
+  
+  
+  
+    Pages 403-410.
+  
+  
+  <br>
+    doi: 10.1109/JAS.2023.123408
+    <div style="float: right;">
+      <a class="badge-link" href="https://doi.org/10.1109/JAS.2023.123408"> Link</a>
+      
+      &nbsp;
+      <a class="badge-bib" href="/bib/CAA2023.txt">BIB</a>
+      
+    </div> 
+  </p>
+</blockquote>
+
+<blockquote class="padsing" style="text-decoration: none;">
   <p class="auto"><strong>Chang, L.</strong>, Han, Q.-L., Ge, X., Zhang, C., &amp; Zhang, X., <a style="font-style:italic">On designing distributed prescribed finite-time observers for strict-feedback nonlinear systems</a>, 
-  <a style="font-weight: bold;">IEEE Transactions on Cybernetics</a>, (2021), 
+  <a style="font-weight: bold;">IEEE Transactions on Cybernetics</a>, 
+  
+    (2021), 
+  
+  
   
     Volume 51,
   
   
-  Issue 9,
+    Issue 9,
   
-  Pages 4695-4706.
+  
+    Pages 4695-4706.
+  
+  
   <br>
     doi: 10.1109/TCYB.2019.2951067
     <div style="float: right;">
       <a class="badge-link" href="https://doi.org/10.1109/TCYB.2019.2951067"> Link</a>
+      
       &nbsp;
       <a class="badge-bib" href="/bib/TCYB2021.txt">BIB</a>
+      
     </div> 
   </p>
 </blockquote>
 
 <blockquote class="padsing" style="text-decoration: none;">
   <p class="auto">Chen, X., Zhang, X., Zhang, C., &amp; <strong>Chang, L.</strong>, <a style="font-style:italic">A time-varying high-gain approach to feedback regulation of uncertain time-varying nonholonomic systems</a>, 
-  <a style="font-weight: bold;">ISA transactions</a>, (2020), 
+  <a style="font-weight: bold;">ISA transactions</a>, 
+  
+    (2020), 
+  
+  
   
     Volume 98,
   
   
-  Pages 110–122.
+  
+    Pages 110–122.
+  
+  
   <br>
     doi: 10.1016/j.isatra.2019.08.062
     <div style="float: right;">
       <a class="badge-link" href="https://doi.org/10.1016/j.isatra.2019.08.062"> Link</a>
+      
       &nbsp;
       <a class="badge-bib" href="bib/ISA2020.txt">BIB</a>
+      
     </div> 
   </p>
 </blockquote>
 
 <blockquote class="padsing" style="text-decoration: none;">
   <p class="auto">Li, H., Zhang, X., &amp; <strong>Chang, L.</strong>, <a style="font-style:italic">Output feedback regulation of a class of triangular structural nonlinear systems with unknown measurement sensitivity</a>, 
-  <a style="font-weight: bold;">International Journal of Systems Science</a>, (2019), 
+  <a style="font-weight: bold;">International Journal of Systems Science</a>, 
+  
+    (2019), 
+  
+  
   
     Volume 50,
   
   
-  Issue 13,
+    Issue 13,
   
-  Pages 2486–2496.
+  
+    Pages 2486–2496.
+  
+  
   <br>
     doi: 10.1080/00207721.2019.1671529
     <div style="float: right;">
       <a class="badge-link" href="https://doi.org/10.1080/00207721.2019.1671529"> Link</a>
+      
       &nbsp;
       <a class="badge-bib" href="bib/IJSS2019.txt">BIB</a>
+      
     </div> 
   </p>
 </blockquote>
 
 <blockquote class="padsing" style="text-decoration: none;">
   <p class="auto">Chen, X., Zhang, X., Zhang, C., &amp; <strong>Chang, L.</strong>, <a style="font-style:italic">Global asymptotic stabilization for input-delay chained nonholonomic systems via the static gain approach</a>, 
-  <a style="font-weight: bold;">Journal of the Franklin Institute</a>, (2018), 
+  <a style="font-weight: bold;">Journal of the Franklin Institute</a>, 
+  
+    (2018), 
+  
+  
   
     Volume 355,
   
   
-  Issue 9,
+    Issue 9,
   
-  Pages 3895–3910.
+  
+    Pages 3895–3910.
+  
+  
   <br>
     doi: 10.1016/j.jfranklin.2018.03.009
     <div style="float: right;">
       <a class="badge-link" href="https://doi.org/10.1016/j.jfranklin.2018.03.009"> Link</a>
+      
       &nbsp;
       <a class="badge-bib" href="bib/JFI2018.txt">BIB</a>
+      
     </div> 
   </p>
 </blockquote>
 
 <blockquote class="padsing" style="text-decoration: none;">
   <p class="auto"><strong>Chang, L.</strong>, Zhang, C., Zhang, X., &amp; Chen, X., <a style="font-style:italic">Decentralised regulation of nonlinear multi-agent systems with directed network topologies</a>, 
-  <a style="font-weight: bold;">International Journal of Control</a>, (2017), 
+  <a style="font-weight: bold;">International Journal of Control</a>, 
+  
+    (2017), 
+  
+  
   
     Volume 90,
   
   
-  Issue 11,
+    Issue 11,
   
-  Pages 2338–2348.
+  
+    Pages 2338–2348.
+  
+  
   <br>
     doi: 10.1080/00207179.2016.1245868
     <div style="float: right;">
       <a class="badge-link" href="https://doi.org/10.1080/00207179.2016.1245868"> Link</a>
+      
       &nbsp;
       <a class="badge-bib" href="bib/IJC2017.txt">BIB</a>
+      
     </div> 
   </p>
 </blockquote>
 
 <blockquote class="padsing" style="text-decoration: none;">
   <p class="auto">Chen, X., Zhang, X., <strong>Chang, L.</strong>, &amp; Zhang, C., <a style="font-style:italic">Feedback stabilization for cross triangular nonlinear systems</a>, 
-  <a style="font-weight: bold;">2016 Chinese Control and Decision Conference (CCDC)</a>, (2016), 
+  <a style="font-weight: bold;">2016 Chinese Control and Decision Conference (CCDC)</a>, 
   
   
-  Pages 1759–1763.
+    28-30 May 2016.
+  
+  
+  
+  
+    Pages 1759–1763.
+  
+  
   <br>
     doi: 10.1109/CCDC.2016.7531266
     <div style="float: right;">
       <a class="badge-link" href="https://doi.org/10.1109/CCDC.2016.7531266"> Link</a>
+      
       &nbsp;
       <a class="badge-bib" href="bib/CCSC2016.txt">BIB</a>
+      
     </div> 
   </p>
 </blockquote>
 
 <blockquote class="padsing" style="text-decoration: none;">
   <p class="auto"><strong>Chang, L.</strong>, Zhang, C., Chen, X., &amp; Zhang, X., <a style="font-style:italic">Adaptive state estimation for a class of system with nonlinear parametrization</a>, 
-  <a style="font-weight: bold;">The 27th Chinese Control and Decision Conference (2015 CCDC)</a>, (2015), 
+  <a style="font-weight: bold;">The 27th Chinese Control and Decision Conference (2015 CCDC)</a>, 
   
   
-  Pages 1610–1613.
+    23-25 May 2015.
+  
+  
+  
+  
+    Pages 1610–1613.
+  
+  
   <br>
     doi: 10.1109/CCDC.2015.7162176
     <div style="float: right;">
       <a class="badge-link" href="https://doi.org/10.1109/CCDC.2015.7162176"> Link</a>
+      
       &nbsp;
       <a class="badge-bib" href="bib/CCDC2015.txt">BIB</a>
+      
     </div> 
   </p>
 </blockquote>
 
 <blockquote class="padsing" style="text-decoration: none;">
   <p class="auto">Zhang, C., <strong>Chang, L.</strong>, &amp; Zhang, X., <a style="font-style:italic">Leader-follower consensus of upper-triangular nonlinear multi-agent systems</a>, 
-  <a style="font-weight: bold;">IEEE/CAA Journal of Automatica Sinica</a>, (2014), 
+  <a style="font-weight: bold;">IEEE/CAA Journal of Automatica Sinica</a>, 
+  
+    (2014), 
+  
+  
   
     Volume 1,
   
   
-  Issue 2,
+    Issue 2,
   
-  Pages 210–217.
+  
+    Pages 210–217.
+  
+  
   <br>
     doi: 10.1109/JAS.2014.7004552
     <div style="float: right;">
       <a class="badge-link" href="https://doi.org/10.1109/JAS.2014.7004552"> Link</a>
+      
       &nbsp;
       <a class="badge-bib" href="bib/CAA2014.txt">BIB</a>
+      
     </div> 
   </p>
 </blockquote>
@@ -410,7 +745,7 @@
   <footer>
     <div style="width: 100%; height:5vmin; padding:0; "></div>
 
-    Copyright ©  Le   •  2019-2022 
+    Copyright ©  Le   •  2019-2026 
 
     <div style="width: 100%; height:5vmin; padding:0; "></div>
 
