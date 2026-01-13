@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tp on 首页</title>
+    <link>http://localhost:1313/cn/project/</link>
+    <description>Recent content in Tp on 首页</description>
+    <generator>Hugo</generator>
+    <language>cn</language>
+    <copyright>Copyright &amp;copy;  Le  &amp;nbsp;&amp;bull;&amp;nbsp; 2019-{year}</copyright>
+    <lastBuildDate>Sat, 10 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/cn/project/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Intermittent Control</title>
+      <link>http://localhost:1313/cn/project/intermittent/</link>
+      <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/cn/project/intermittent/</guid>
+      <description>Design intermittent control for nonlinear systems.</description>
+    </item>
+    <item>
+      <title>Complex nonlinear system</title>
+      <link>http://localhost:1313/cn/project/nonlinear/</link>
+      <pubDate>Sat, 10 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/cn/project/nonlinear/</guid>
+      <description>Design stabilizing control for complex nonlinear systems.</description>
+    </item>
+    <item>
+      <title>Distributed Observer</title>
+      <link>http://localhost:1313/cn/project/observer/</link>
+      <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/cn/project/observer/</guid>
+      <description>Design distributed observers</description>
+    </item>
+    <item>
+      <title>Multi-Agent Nonlinear Control</title>
+      <link>http://localhost:1313/cn/project/agents/</link>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/cn/project/agents/</guid>
+      <description>Design consensus control</description>
+    </item>
+  </channel>
+</rss>

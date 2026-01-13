@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Home</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright &amp;copy;  Le  &amp;nbsp;&amp;bull;&amp;nbsp; 2019-{year}</copyright>
+    <lastBuildDate>Sat, 10 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Intermittent Control</title>
+      <link>http://localhost:1313/project/intermittent/</link>
+      <pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/intermittent/</guid>
+      <description>Design intermittent control for nonlinear systems.</description>
+    </item>
+    <item>
+      <title>Complex nonlinear system</title>
+      <link>http://localhost:1313/project/nonlinear/</link>
+      <pubDate>Sat, 10 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/nonlinear/</guid>
+      <description>Design stabilizing control for complex nonlinear systems.</description>
+    </item>
+    <item>
+      <title>Pub</title>
+      <link>http://localhost:1313/publication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publication/</guid>
+      <description>&lt;blockquote class=&#34;padsing&#34; style=&#34;text-decoration: none;&#34;&gt;&#xA;  &lt;p class=&#34;auto&#34;&gt;Wang, D., Yuan, Y., Song, Y., Xiao, S., &amp;amp; &lt;strong&gt;Chang, L.&lt;/strong&gt;, &lt;a style=&#34;font-style:italic&#34;&gt;Cascade control for post-chlorine dosage during drinking water treatment under cyber attacks&lt;/a&gt;,&#xA;    &lt;a style=&#34;font-weight: bold;&#34;&gt;IEEE Transactions on Automation Science and Engineering&lt;/a&gt;,&#xA;    &#xA;    &#xA;    &#xA;    &#xA;    &#xA;    &#xA;    Published Online.&#xA;    &#xA;    &lt;br&gt;&#xA;  &lt;div class=&#34;publication-row&#34;&gt;&#xA;&#xA;    &#xA;    &#xA;     &#xA;    &lt;span class=&#34;doi-text&#34;&gt;&#xA;      doi: &lt;a href=&#34;https://doi.org/10.1109/TASE.2025.3599161&#34; target=&#34;_blank&#34;&gt;10.1109/TASE.2025.3599161&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&#xA;    &lt;div style=&#34;float: right;&#34;&gt;&#xA;&#xA;      &#xA;      &#xA;      &#xA;&#xA;      &#xA;      &#xA;      &#xA;      &#xA;      &#xA;&#xA;      &lt;a class=&#34;badge-link&#34; href=&#34;https://doi.org/10.1109/TASE.2025.3599161&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;&#xA;      &#xA;&#xA;      &#xA;&#xA;    &lt;/div&gt;&#xA;    &lt;div style=&#34;clear: both;&#34;&gt;&lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote class=&#34;padsing&#34; style=&#34;text-decoration: none;&#34;&gt;&#xA;  &lt;p class=&#34;auto&#34;&gt;Pan, W., Feng, Y. &lt;strong&gt;Chang, L.&lt;/strong&gt; &amp;amp; Zhang, X., &lt;a style=&#34;font-style:italic&#34;&gt;Global stabilization of strict-feedback nonlinear systems with application to circuits: An intermittent impulsive control approach&lt;/a&gt;,&#xA;    &lt;a style=&#34;font-weight: bold;&#34;&gt;IEEE Control Systems Letters&lt;/a&gt;,&#xA;    &#xA;    &#xA;    &#xA;    &#xA;    &#xA;    &#xA;    Published Online.&#xA;    &#xA;    &lt;br&gt;&#xA;  &lt;div class=&#34;publication-row&#34;&gt;&#xA;&#xA;    &#xA;    &#xA;     &#xA;    &lt;span class=&#34;doi-text&#34;&gt;&#xA;      doi: &lt;a href=&#34;https://doi.org/10.1109/LCSYS.2025.3595567&#34; target=&#34;_blank&#34;&gt;10.1109/LCSYS.2025.3595567&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&#xA;    &lt;div style=&#34;float: right;&#34;&gt;&#xA;&#xA;      &#xA;      &#xA;      &#xA;&#xA;      &#xA;      &#xA;      &#xA;      &#xA;      &#xA;&#xA;      &lt;a class=&#34;badge-link&#34; href=&#34;https://doi.org/10.1109/LCSYS.2025.3595567&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;&#xA;      &#xA;&#xA;      &#xA;&#xA;    &lt;/div&gt;&#xA;    &lt;div style=&#34;clear: both;&#34;&gt;&lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;blockquote class=&#34;padsing&#34; style=&#34;text-decoration: none;&#34;&gt;&#xA;  &lt;p class=&#34;auto&#34;&gt;&lt;strong&gt;Chang, L.&lt;/strong&gt; &amp;amp; Zhang, X., &lt;a style=&#34;font-style:italic&#34;&gt;Global output regulation for uncertain feedforward nonlinear systems with unknown nonlinear growth rate&lt;/a&gt;,&#xA;    &lt;a style=&#34;font-weight: bold;&#34;&gt;International Journal of Robust and Nonlinear Control&lt;/a&gt;,&#xA;    &#xA;    (2025),&#xA;    &#xA;    &#xA;    &#xA;    Volume 35,&#xA;    &#xA;    &#xA;    Issue 9,&#xA;    &#xA;    &#xA;    Pages 3523-3532.&#xA;    &#xA;    &#xA;    &lt;br&gt;&#xA;  &lt;div class=&#34;publication-row&#34;&gt;&#xA;&#xA;    &#xA;    &#xA;     &#xA;    &lt;span class=&#34;doi-text&#34;&gt;&#xA;      doi: &lt;a href=&#34;https://doi.org/10.1002/rnc.7862&#34; target=&#34;_blank&#34;&gt;10.1002/rnc.7862&lt;/a&gt;&#xA;    &lt;/span&gt;&#xA;    &#xA;&#xA;    &lt;div style=&#34;float: right;&#34;&gt;&#xA;&#xA;      &#xA;      &#xA;      &#xA;&#xA;      &#xA;      &#xA;      &#xA;      &#xA;      &#xA;&#xA;      &lt;a class=&#34;badge-link&#34; href=&#34;https://doi.org/10.1002/rnc.7862&#34; target=&#34;_blank&#34;&gt;PDF&lt;/a&gt;&#xA;      &#xA;&#xA;      &#xA;      &#xA;      &#xA;&#xA;      &#xA;      &#xA;      &#xA;      &#xA;&#xA;      &amp;nbsp;&#xA;      &lt;a class=&#34;badge-bib&#34; href=&#34;http://localhost:1313/bib/RNC2025.txt/&#34; target=&#34;_blank&#34;&gt;BIB&lt;/a&gt;&#xA;      &#xA;&#xA;    &lt;/div&gt;&#xA;    &lt;div style=&#34;clear: both;&#34;&gt;&lt;/div&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Distributed Observer</title>
+      <link>http://localhost:1313/project/observer/</link>
+      <pubDate>Fri, 10 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/observer/</guid>
+      <description>Design distributed observers</description>
+    </item>
+    <item>
+      <title>Multi-Agent Nonlinear Control</title>
+      <link>http://localhost:1313/project/agents/</link>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/project/agents/</guid>
+      <description>Design consensus control</description>
+    </item>
+  </channel>
+</rss>

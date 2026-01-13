@@ -1,0 +1,12 @@
+@article{https://doi.org/10.1002/rnc.7862,
+author = {Chang, Le and Zhang, Xiangbo},
+title = {Global Output Regulation for Uncertain Feedforward Nonlinear Systems With Unknown Nonlinear Growth Rate},
+journal = {International Journal of Robust and Nonlinear Control},
+volume = {35},
+number = {9},
+pages = {3523-3532},
+keywords = {dynamic gain feedback control, feedforward systems, low-gain feedback control, nonlinear systems, uncertain systems},
+doi = {10.1002/rnc.7862},
+year = {2025}
+}
+
