@@ -1,13 +1,88 @@
 {{ define "main" }}
-<main>
-    <article>
-    <header>
-        <h1>{{ .Title }}</h1>
-    </header>
-        {{ .Content }}
+<div class="main-container single-layout">
+
+    <article class="post-article">
+
+        <header class="post-header">
+            <h1 class="post-title">{{ .Title }}</h1>
+
+            <div class="post-meta"
+                style="display: flex; align-items: center; flex-wrap: wrap; gap: 15px; margin-top: 10px; color: #888;">
+
+                <span class="meta-item" style="flex-shrink: 0;">📅 {{ .Date.Format "2006-01-02" }}</span>
+
+                {{ if .Params.tags }}
+                <div class="post-tags" style="display: inline-flex; flex-wrap: wrap; gap: 8px;">
+                    {{ range .Params.tags }}
+                    <a href="{{ "tags/" | absURL }}{{ . | urlize }}" class="tag-link"
+                        style="color: #888; text-decoration: none;">#{{ . }}</a>
+                    {{ end }}
+                </div>
+                {{ end }}
+
+            </div>
+        </header>
+
+        <div class="post-content">
+            {{ .Content }}
+        </div>
+
+        <footer class="project-footer-custom"
+            style="clear: both; margin-top: 1.5rem; border-top: 1px solid #eaeaea; padding-top: 15px;">
+
+
+
+            <div class="bottom-nav-container">
+                {{ $pages := .CurrentSection.RegularPages }}
+                {{ $currentPermalink := .Permalink }}
+                {{ $sectionName := .Section }}
+
+                {{ range $index, $page := $pages }}
+                {{ if eq $page.Permalink $currentPermalink }}
+
+                <div class="nav-links"
+                    style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+
+                    <div class="nav-prev" style="flex: 1; text-align: left; max-width: 33%;">
+                        {{ if gt $index 0 }}
+                        {{ $prev := index $pages (sub $index 1) }}
+                        <a href="{{ $prev.RelPermalink }}"
+                            style="display: block; text-decoration: none; color: #555; font-size: 0.9rem;"
+                            title="{{ $prev.Title }}">
+                            ← <span class="nav-text">{{ $prev.Title }}</span>
+                        </a>
+                        {{ end }}
+                    </div>
+
+                    <div class="nav-center" style="flex: 0 0 auto; text-align: center; margin: 0 10px;">
+                        {{ with $.Site.GetPage $.Section }} {{ $trans := i18n $sectionName }}
+                        {{ $finalTitle := $trans | default (.Title | default ($sectionName | humanize)) }}
+
+                        <a href="{{ .RelPermalink }}"
+                            style="font-size: 0.85rem; text-decoration: none; border: 1px solid #ddd; padding: 4px 10px; border-radius: 4px; color: #888; white-space: nowrap;">
+                            {{ i18n "backToSection" (dict "Section" $finalTitle) | default "↩︎ List" }}
+                        </a>
+                        {{ end }}
+                    </div>
+
+                    <div class="nav-next" style="flex: 1; text-align: right; max-width: 33%;">
+                        {{ if lt (add $index 1) (len $pages) }}
+                        {{ $next := index $pages (add $index 1) }}
+                        <a href="{{ $next.RelPermalink }}"
+                            style="display: block; text-decoration: none; color: #555; font-size: 0.9rem;"
+                            title="{{ $next.Title }}">
+                            <span class="nav-text">{{ $next.Title }}</span> →
+                        </a>
+                        {{ end }}
+                    </div>
+
+                </div>
+                {{ end }}
+                {{ end }}
+            </div>
+        </footer>
+
     </article>
-    <aside>
-        {{ .TableOfContents }}
-    </aside>
-</main>
+
+</div>
 {{ end }}

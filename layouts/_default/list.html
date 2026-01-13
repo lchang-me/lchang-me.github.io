@@ -1,0 +1,48 @@
+{{ define "main" }}
+<div class="main-container list-layout">
+
+    <header class="list-header" style="text-align: center; margin: 40px 0 30px;">
+        <h1 style="font-size: 2rem; font-weight: bold; margin-bottom: 10px;">
+            {{ if eq .Kind "taxonomy" }}
+            # {{ .Title }}
+            {{ else }}
+            {{ $sectionName := .Title }}
+            {{ i18n $sectionName | default .Title }}
+            {{ end }}
+        </h1>
+
+
+
+        {{ if .Content }}
+        <div class="list-description" style="color: #666; max-width: 600px; margin: 0 auto; font-size: 0.95rem;">
+            {{ .Content }}
+        </div>
+        {{ end }}
+    </header>
+    <div class="grid-container">
+
+        {{ range .Pages.ByWeight }}
+        <div class="grid-item">
+            <a href="{{ .RelPermalink }}" class="card-link">
+
+                {{ $image := .Resources.GetMatch "featured.*" }}
+                {{ if .Params.image }}
+                <img src="{{ .Params.image }}" alt="{{ .Title }}" class="card-img">
+                {{ else if $image }}
+                <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="card-img">
+                {{ else }}
+                <div class="card-img-placeholder"></div>
+                {{ end }}
+
+                <div class="card-body">
+                    <h3>{{ .Title }}</h3>
+                    <p>{{ .Summary | truncate 80 }}</p>
+                    <span class="read-more">{{ i18n "read" | default "Read More" }} →</span>
+                </div>
+            </a>
+        </div>
+        {{ end }}
+
+    </div>
+</div>
+{{ end }}

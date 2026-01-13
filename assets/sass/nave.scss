@@ -1,30 +1,101 @@
-
-
-
-nav{
-    padding: 10px;
-    width: 80%;
-    margin: auto;
-    display: block;
-    color:var(--primary);
+nav {
+  padding: 10px;
+  width: 80%;
+  margin: auto;
+  display: block;
+  color: var(--primary);
 }
 
 nav ul {
-    list-style: none;
-    margin-right: 0px;
-    padding: 0px;
-  
-    a {
-      color:var(--primary);
-      text-decoration: none;
-      font-weight: bold;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  
-    li {
-      display: inline;
+  list-style: none;
+  margin-right: 0px;
+  padding: 0px;
+
+  a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 
+  li {
+    display: inline;
+  }
+}
+
+// assets/scss/project-nav.scss
+
+.project-footer-custom {
+  // ... 之前的代码不变 ...
+
+  // 👇 修改这里：类名改了，且强制重置定位 👇
+  .my-custom-bottom-nav {
+    // ⚠️ 关键：使用 !important 覆盖 JS 注入的行内样式
+    position: static !important;
+    top: auto !important;
+    display: block !important;
+    background: transparent !important; // 覆盖那个 hljs-bg
+
+    .nav-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      // ... 下面的按钮样式保持不变 ...
+      .nav-prev,
+      .nav-next {
+        // ... (保持你之前的按钮样式) ...
+        display: inline-flex;
+        align-items: center;
+        padding: 12px 20px;
+        background-color: #ffffff;
+        border: 1px solid #e1e4e8;
+        border-radius: 8px;
+        color: #24292e;
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        max-width: 45%;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+
+        &:hover {
+          border-color: #0366d6;
+          color: #0366d6;
+          background-color: #f1f8ff;
+          transform: translateY(-2px);
+        }
+
+        .nav-title {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          margin: 0 8px;
+        }
+      }
+
+      .nav-next {
+        text-align: right;
+      }
+    }
+  }
+}
+
+.nav-text {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+
+/* 移动端适配：屏幕太小时隐藏上一篇下一篇的标题，只留箭头 */
+@media (max-width: 600px) {
+  .nav-text {
+    display: none;
+  }
+}

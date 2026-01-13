@@ -7,7 +7,11 @@ baseURL= "https://www.lchang.me/"
 disableKinds = ['taxonomy', 'term']
 enableEmoji=true
 
+[taxonomies]
+  tag = "tags"
+  category = "categories"
 
+  
 [languages]
   [languages.en]
     languageName = 'En'

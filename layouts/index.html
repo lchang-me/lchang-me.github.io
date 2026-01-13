@@ -43,15 +43,21 @@
 <div class="extrabar"></div>
 
 <article class="centesde">
-    {{ range where $pages ".Params.header_mu" "eq" true }}
+    {{/* 核心修改：从 site.Sections 改为 site.Home.Pages */}}
+    {{/* 这样既能包含文件夹(_index.md)，也能包含单页(index.md) */}}
+    {{ range where site.Home.Pages.ByWeight ".Params.header_mu" "eq" true }}
+
     {{ if ne .Params.contentonly true }}
     <article id='{{ anchorize .Title }}'>
         <div style="height:5vmin"></div>
         <h1>{{ .Title }}</h1>
         <hr>
-        <a>{{ .Content }}</a>
+        <div class="content-body">
+            {{ .Content }}
+        </div>
     </article>
     {{ end }}
+
     {{ end }}
 </article>
 

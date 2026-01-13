@@ -1,5 +1,3 @@
-
-
 :root {
   --gap: 24px;
   --content-gap: 40px;
@@ -10,7 +8,8 @@
   --radius: 8px;
 
 }
-.theme-light{
+
+.theme-light {
   --theme: #deeaf7;
   --primary: rgba(0, 0, 0, 0.88);
   --secondary: rgba(0, 0, 0, 0.56);
@@ -36,34 +35,182 @@
   --hljs-bg: #2a2a2a;
   --code-bg: #4f4f4f;
   --border: #5f5f5f;
-
-svg#moon {
-  style{visibility: visible;}
 }
 
-svg#sun {
-  style{visibility: hidden;}
-}
+/* ========================================= */
+/* 开始替换：Theme Toggle 图标样式       */
+/* ========================================= */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 不需要其他样式了，样式都写在 HTML button 标签里了 */
 }
 
+/* 1. 列表容器：变成横向 Flex 布局 */
+.language-list {
+  display: flex;
+  /* 横向排列核心代码 */
+  align-items: center;
+  /* 垂直方向居中对齐 */
+  justify-content: flex-end;
+  /* 内容靠右对齐 (可选) */
+  list-style: none;
+  /* 去掉列表默认的小圆点 */
+  padding: 0;
+  /* 去掉默认缩进 */
+  margin: 0;
+}
+
+/* 2. 列表项：确保每一项内部也对齐 */
+.language-list li {
+  display: flex;
+  align-items: center;
+}
+
+/* 3. 给切换按钮加个右边距，和语言分开一点 */
+.theme-toggle {
+  margin-right: 15px;
+  /* 这里的数字控制图标和文字的距离 */
+}
+
+/* 4. 语言链接样式优化 */
+.language-list a {
+  text-decoration: none;
+  /* 去掉下划线 */
+  margin-left: 5px;
+  /* 语言之间留点空隙 */
+  margin-right: 5px;
+}
+
+/* ========================================= */
+/* 结束替换                           */
+/* ========================================= */
+
+/* 外层容器：控制整体宽度和居中 */
+/* 1. 调整外层容器的顶部距离 */
+/* 1. 普通页面的宽度 (保持现状，适合阅读) */
+.main-container {
+  max-width: 1024px;
+  /* 这里是你现在的设置 */
+  margin: 20px auto;
+  width: 90%;
+}
+
+/* 2. 列表页的特别优待 (关键修改) */
+.list-layout {
+  /* 放到更宽，比如 1400px，或者直接用 95% */
+  max-width: 1400px;
+}
+
+/* 3. 同时把网格的卡片弄小一点点，这样一行能塞更多 */
+.grid-container {
+  display: grid;
+  /* 建议把之前的 280px 改成 250px，这样能更容易挤出第4列 */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+}
+
+
+/* 2. 单个卡片 (Grid Item) */
+.grid-item {
+  background: var(--hljs-bg);
+  /* 跟随你的深色/浅色背景 */
+  border: 1px solid var(--border);
+  /* 边框 */
+  border-radius: 12px;
+  /* 圆角 */
+  overflow: hidden;
+  /* 防止图片溢出圆角 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 鼠标悬停效果：上浮 + 阴影 */
+.grid-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 3. 卡片链接 (去掉下划线) */
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+/* 4. 图片样式 */
+.card-img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  /* 强制高度，保持整齐 */
+  background-color: var(--code-bg);
+  /* 或者 #f5f5f5 */
+
+  display: block;
+
+  /* 保持之前的缩放动画 */
+  transition: transform 0.5s ease;
+  transform-origin: center center;
+}
+
+.card-img-placeholder {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(45deg, #eee, #ddd);
+  /* 灰色渐变占位 */
+}
+
+/* 5. 文字内容 */
+.card-body {
+  padding: 20px;
+}
+
+.card-body h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  color: var(--secondary);
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.read-more {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: orange;
+  /* 你的强调色 */
+}
+
+/* ========================================= */
+/* 结束替换                           */
+/* ========================================= */
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-    font-family: sans-serif; 
-    background: var(--hljs-bg);
-    color:var(--primary);
-    width:100%;
-    margin: auto;
+  font-family: sans-serif;
+  background: var(--hljs-bg);
+  color: var(--primary);
+  width: 100%;
+  margin: auto;
 }
 
 
 .entry {
   position: relative;
   top: 50%;
-  width:70%;
+  width: 70%;
   margin-bottom: var(--gap);
   padding: var(--gap);
   background: var(--hljs-bg);
@@ -75,14 +222,16 @@ body {
 
 
 
-.row{
+.row {
   min-height: 60vh;
 }
+
 .row::after {
   content: "";
   clear: both;
   display: table;
 }
+
 .helper {
   display: inline-block;
   height: 100%;
@@ -93,7 +242,7 @@ body {
 /* For mobile phones: */
 [class*="col-"] {
   float: left;
-  width:100%;
+  width: 100%;
 }
 
 .centesde {
@@ -101,7 +250,7 @@ body {
   margin: auto;
 }
 
-.padsing{
+.padsing {
   padding-top: 0.75rem;
   padding-right: 1.25rem;
   padding-bottom: 1.75rem;
@@ -109,58 +258,130 @@ body {
 }
 
 
-.extrabar{
-  height:9vh; width: 100%; display: flex;
+.extrabar {
+  height: 9vh;
+  width: 100%;
+  display: flex;
 }
-.col00{
-  height:3vh;    
+
+.col00 {
+  height: 3vh;
   display: flex;
   width: 100%;
 }
+
 @media only screen and (min-width: 600px) {
+
   /* For desktop: */
-  .col-1 {width: 8.33%;  display: flex; margin: auto;
-    height: calc(60vmin);}
-  .col-2 {width: 16.66%; display: flex; margin: auto;
-    height: calc(60vmin);}
-  .col-3 {width: 25%; display: flex; margin: auto;
-    height: calc(60vmin);}
-  .col-4 {width: 33.33%; display: flex; margin: auto;
-    height: calc(60vmin);}
-  .col-5 {width: 41.66%; display: flex; margin: auto;
-    height: calc(60vmin);}
-  .col-6 {width: 50%; display: flex; margin: auto;
-    height: calc(60vmin);}
-  .col-7 {width: 58.33%; display: flex; margin: auto;
-    height: calc(60vmin);}
-  .col-8 {width: 66.66%; display: flex; margin: auto;
-    height: calc(60vmin);}
-  .col-9 {width: 75%; display: flex; margin: auto;
-    height: calc(60vmin);}
-  .col-10 {width: 83.33%; display: flex; margin: auto;
-    height: calc(60vmin);}
-  .col-11 {width: 91.66%; display: flex; margin: auto;
-    height: calc(60vmin);}
-  .col-12 {width: 100%; display: flex; margin: auto;
-    height: calc(60vmin);}
-  .entry{
+  .col-1 {
+    width: 8.33%;
+    display: flex;
+    margin: auto;
+    height: calc(60vmin);
+  }
+
+  .col-2 {
+    width: 16.66%;
+    display: flex;
+    margin: auto;
+    height: calc(60vmin);
+  }
+
+  .col-3 {
+    width: 25%;
+    display: flex;
+    margin: auto;
+    height: calc(60vmin);
+  }
+
+  .col-4 {
+    width: 33.33%;
+    display: flex;
+    margin: auto;
+    height: calc(60vmin);
+  }
+
+  .col-5 {
+    width: 41.66%;
+    display: flex;
+    margin: auto;
+    height: calc(60vmin);
+  }
+
+  .col-6 {
+    width: 50%;
+    display: flex;
+    margin: auto;
+    height: calc(60vmin);
+  }
+
+  .col-7 {
+    width: 58.33%;
+    display: flex;
+    margin: auto;
+    height: calc(60vmin);
+  }
+
+  .col-8 {
+    width: 66.66%;
+    display: flex;
+    margin: auto;
+    height: calc(60vmin);
+  }
+
+  .col-9 {
+    width: 75%;
+    display: flex;
+    margin: auto;
+    height: calc(60vmin);
+  }
+
+  .col-10 {
+    width: 83.33%;
+    display: flex;
+    margin: auto;
+    height: calc(60vmin);
+  }
+
+  .col-11 {
+    width: 91.66%;
+    display: flex;
+    margin: auto;
+    height: calc(60vmin);
+  }
+
+  .col-12 {
+    width: 100%;
+    display: flex;
+    margin: auto;
+    height: calc(60vmin);
+  }
+
+  .entry {
     background: var(--theme);
   }
-  .padsing {padding-top: 0.75rem;
-  padding-right: 1.25rem;
-  padding-bottom: 0.75rem;
-  padding-left: 1.25rem;}
-  .extrabar{
-    height:15vh; width: 100%; display: flex;
+
+  .padsing {
+    padding-top: 0.75rem;
+    padding-right: 1.25rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.25rem;
   }
-  .col00{
-    height:0;    
+
+  .extrabar {
+    height: 15vh;
+    width: 100%;
+    display: flex;
+  }
+
+  .col00 {
+    height: 0;
     display: flex;
     width: 0;
   }
 }
 
-.image { 
+.image {
   max-width: 100%;
   width: 200px;
   object-fit: cover;
@@ -169,7 +390,7 @@ body {
 }
 
 
-footer{ 
+footer {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -195,9 +416,10 @@ footer{
 }
 
 h3 a {
-  color:var(--primary);
+  color: var(--primary);
   text-decoration: none;
   font-weight: bold;
+
   &:hover {
     text-decoration: underline;
   }
@@ -206,7 +428,7 @@ h3 a {
 
 blockquote {
   color: var(--bdgecoloe);
-  background-color:var(--bdgebackground-color);
+  background-color: var(--bdgebackground-color);
   border-color: #c3e6cb;
   position: relative;
   margin-bottom: 1rem;
@@ -215,18 +437,20 @@ blockquote {
   margin-left: auto;
   margin-right: auto;
 }
+
 blockquote p {
   display: inline;
 }
 
 
 .badge-bib {
-    color: #FFFFFF;
-    background: #4673B8;
-    text-decoration: none;
-    padding: 1px 10px 1px 10px;
-    border-radius: 5px;
+  color: #FFFFFF;
+  background: #4673B8;
+  text-decoration: none;
+  padding: 1px 10px 1px 10px;
+  border-radius: 5px;
 }
+
 .badge-link {
   color: #FFFFFF;
   background: #b84648;
@@ -242,6 +466,6 @@ p.auto {
   line-height: 15px;
 }
 
-article p a{
+article p a {
   text-decoration: none;
 }

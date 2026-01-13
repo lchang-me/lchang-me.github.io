@@ -1,13 +1,8 @@
+<footer>
+  <div style="width: 100%; height:5vmin; padding:0; "></div>
 
-{{ with .Params.hide_footer }}
-  <!-- No footer here! -->
-{{ else }}
-  <footer>
-    <div style="width: 100%; height:5vmin; padding:0; "></div>
+  {{ replace .Site.Copyright "{year}" now.Year |htmlUnescape}}
 
-    {{ replace .Site.Copyright "{year}" now.Year |htmlUnescape}} 
+  <div style="width: 100%; height:5vmin; padding:0; "></div>
 
-    <div style="width: 100%; height:5vmin; padding:0; "></div>
-
-  </footer>
-{{ end }}
+</footer>

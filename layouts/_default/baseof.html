@@ -1,18 +1,23 @@
-
 <!doctype html>
 <html class="">
 
-    {{partial "meta.html" .}}
+{{partial "meta.html" .}}
+
 <body>
     <div id="jump_to_top">
     </div>
-        <header>
+    <header>
         {{partial "header.html" .}}
+        {{ if .IsHome }}
         <div style="height:20vmin"></div>
+        {{ else }}
+        <div style="height:10vmin"></div>
+        {{ end }}
     </header>
 
 
     {{partial "nav.html" .}}
+
     <main>
         {{block "main" .}}
         {{end}}
@@ -21,68 +26,70 @@
     <footer>
         {{partial "footer.html" .}}
     </footer>
-    
+
 </body>
 
 <script>
-    function setTheme(themeName){
+    function setTheme(themeName) {
         localStorage.setItem('theme', themeName);
-        document.documentElement.className =themeName;
+        document.documentElement.className = themeName;
     }
-    
 
-    function toggleTheme(){
-        if (localStorage.getItem('theme') == 'theme-dark'){
+    function toggleTheme() {
+        // 如果当前是深色，说明用户想切到浅色
+        if (localStorage.getItem('theme') === 'theme-dark') {
             setTheme('theme-light');
-            document.getElementById("moon").style.visibility = "hidden";
-            document.getElementById("sun").style.visibility = "visible";
-        } else{
+            document.getElementById("sun").style.display = "none";
+            document.getElementById("moon").style.display = "block";
+        } else {
+            // 如果当前是浅色，说明用户想切到深色
             setTheme('theme-dark');
-            document.getElementById("sun").style.visibility = "hidden";
-            document.getElementById("moon").style.visibility = "visible";
+            document.getElementById("sun").style.display = "block";
+            document.getElementById("moon").style.display = "none";
         }
     }
 
-    (function(){
-        if (localStorage.getItem('theme')=='theme-dark'){
+    // 立即执行函数：初始化状态
+    (function () {
+        // 这里的逻辑要和上面反着来：如果保存的是深色，就要显示“切回浅色”的按钮(太阳)
+        if (localStorage.getItem('theme') === 'theme-dark') {
             setTheme('theme-dark');
-            document.getElementById("sun").style.visibility = "hidden";
-            document.getElementById("moon").style.visibility = "visible";
-        } else{
+            document.getElementById("sun").style.display = "block";
+            document.getElementById("moon").style.display = "none";
+        } else {
             setTheme('theme-light');
-            document.getElementById("moon").style.visibility = "hidden";
-            document.getElementById("sun").style.visibility = "visible";
+            document.getElementById("sun").style.display = "none";
+            document.getElementById("moon").style.display = "block";
         }
     })();
 </script>
 
 
 <script>
-$(window).scroll(function() {     
-    var scroll = $(window).scrollTop();
-    if (scroll < 150) {
-        if (scroll <30){
-        $("nav").css({position: "absolute", top: "10px" ,background:"var(--hljs-bg)"});
-        document.getElementById("jssector").style.background = "var(--hljs-bg)";
+    $(window).scroll(function () {
+        var scroll = $(window).scrollTop();
+        if (scroll < 150) {
+            if (scroll < 30) {
+                $("nav").css({ position: "absolute", top: "10px", background: "var(--hljs-bg)" });
+                document.getElementById("jssector").style.background = "var(--hljs-bg)";
 
-    } else
-        {
-        $("nav").css({position: "absolute", top: scroll-20 , background:"var(--hljs-bg)"});
-        document.getElementById("jssector").style.background = "var(--hljs-bg)";
+            } else {
+                $("nav").css({ position: "absolute", top: scroll - 20, background: "var(--hljs-bg)" });
+                document.getElementById("jssector").style.background = "var(--hljs-bg)";
+            }
         }
-    }
-    else {
-        if (scroll < 680){
-        $("nav").css({position: "fixed", top: -680+scroll, background:"var(--theme)"});
-        document.getElementById("jssector").style.background = " linear-gradient(to bottom,var(--theme), var(--hljs-bg))";
+        else {
+            if (scroll < 680) {
+                $("nav").css({ position: "fixed", top: -680 + scroll, background: "var(--theme)" });
+                document.getElementById("jssector").style.background = " linear-gradient(to bottom,var(--theme), var(--hljs-bg))";
 
+            }
+            else {
+                $("nav").css({ position: "fixed", top: 0, background: "var(--theme)" });
+                document.getElementById("jssector").style.background = " linear-gradient(to bottom,var(--theme), var(--hljs-bg))";
+            }
         }
-        else{
-        $("nav").css({position: "fixed", top: 0, background:"var(--theme)"});
-        document.getElementById("jssector").style.background = " linear-gradient(to bottom,var(--theme), var(--hljs-bg))";
-        }
-    }
-});
+    });
 </script>
 
 </html>

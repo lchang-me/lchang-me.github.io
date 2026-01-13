@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="main-container">
+
+    <header class="list-header" style="text-align: center; margin: 40px 0 30px;">
+        <h1 style="font-size: 2rem; font-weight: bold;">
+            {{ i18n "allTags" | default "Tags" }}
+        </h1>
+    </header>
+
+    <div class="tags-container"
+        style="max-width: 800px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+
+        {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+        <a href="{{ " /tags/" | relURL }}{{ $name | urlize }}" class="tag-item"
+            style="text-decoration: none; padding: 8px 15px; background: #f4f4f4; border-radius: 20px; color: #333; transition: 0.3s; border: 1px solid #e0e0e0;">
+
+            #{{ $name }}
+
+            <span style="font-size: 0.8em; color: #999; margin-left: 5px;">
+                {{ $taxonomy.Count }}
+            </span>
+        </a>
+        {{ end }}
+
+    </div>
+
+</div>
+
+<style>
+    .tag-item:hover {
+        background: #333 !important;
+        color: #fff !important;
+        border-color: #333 !important;
+    }
+</style>
+{{ end }}

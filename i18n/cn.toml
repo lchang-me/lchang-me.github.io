@@ -1,0 +1,23 @@
+[read]
+other = "更多"
+
+[backToSection]
+other = "↩︎ 回到研究成果"
+
+[Pub]
+other = "发表文章"
+
+[Tp]
+other="研究成果"
+
+[pageNotFound]
+other = "页面未找到"
+
+[pageNotFoundDesc]
+other = "抱歉，您查找的页面似乎不存在或已被移除。"
+
+[goHome]
+other = "返回首页"
+
+[allTags]
+other = "所有标签"
