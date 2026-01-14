@@ -1,95 +1,122 @@
 <!doctype html>
-<html class="">
+<html lang="{{ .Site.Language.Lang | default " zh-cn" }}">
 
-{{partial "meta.html" .}}
+{{ partial "meta.html" . }}
 
 <body>
-    <div id="jump_to_top">
-    </div>
+    <script>
+        (function () {
+            const storageTheme = localStorage.getItem('theme');
+            const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            // 如果有缓存，用缓存；如果没有，跟随系统
+            if (storageTheme) {
+                document.documentElement.className = storageTheme;
+            } else if (systemDark) {
+                document.documentElement.className = 'theme-dark';
+                localStorage.setItem('theme', 'theme-dark');
+            } else {
+                document.documentElement.className = 'theme-light';
+                localStorage.setItem('theme', 'theme-light');
+            }
+        })();
+    </script>
+
+    <div id="jump_to_top"></div>
+
     <header>
         {{partial "header.html" .}}
+
         {{ if .IsHome }}
-        <div style="height:20vmin"></div>
+        <div style="height: max(20vmin, 120px);"></div>
         {{ else }}
-        <div style="height:10vmin"></div>
+        <div style="height: max(10vmin, 100px);"></div>
         {{ end }}
+
+        {{partial "nav.html" .}}
     </header>
 
-
-    {{partial "nav.html" .}}
-
     <main>
-        {{block "main" .}}
-        {{end}}
+        {{ block "main" . }}
+        {{ end }}
     </main>
 
     <footer>
-        {{partial "footer.html" .}}
+        {{ partial "footer.html" . }}
     </footer>
 
-</body>
+    <script>
+        // 这里的元素ID (sun, moon) 需要确保在 header/nav partial 中存在
+        const sunIcon = document.getElementById("sun");
+        const moonIcon = document.getElementById("moon");
 
-<script>
-    function setTheme(themeName) {
-        localStorage.setItem('theme', themeName);
-        document.documentElement.className = themeName;
-    }
-
-    function toggleTheme() {
-        // 如果当前是深色，说明用户想切到浅色
-        if (localStorage.getItem('theme') === 'theme-dark') {
-            setTheme('theme-light');
-            document.getElementById("sun").style.display = "none";
-            document.getElementById("moon").style.display = "block";
-        } else {
-            // 如果当前是浅色，说明用户想切到深色
-            setTheme('theme-dark');
-            document.getElementById("sun").style.display = "block";
-            document.getElementById("moon").style.display = "none";
+        function setTheme(themeName) {
+            localStorage.setItem('theme', themeName);
+            document.documentElement.className = themeName;
+            updateIcons(themeName);
         }
-    }
 
-    // 立即执行函数：初始化状态
-    (function () {
-        // 这里的逻辑要和上面反着来：如果保存的是深色，就要显示“切回浅色”的按钮(太阳)
-        if (localStorage.getItem('theme') === 'theme-dark') {
-            setTheme('theme-dark');
-            document.getElementById("sun").style.display = "block";
-            document.getElementById("moon").style.display = "none";
-        } else {
-            setTheme('theme-light');
-            document.getElementById("sun").style.display = "none";
-            document.getElementById("moon").style.display = "block";
-        }
-    })();
-</script>
-
-
-<script>
-    $(window).scroll(function () {
-        var scroll = $(window).scrollTop();
-        if (scroll < 150) {
-            if (scroll < 30) {
-                $("nav").css({ position: "absolute", top: "10px", background: "var(--hljs-bg)" });
-                document.getElementById("jssector").style.background = "var(--hljs-bg)";
-
+        function updateIcons(themeName) {
+            if (!sunIcon || !moonIcon) return; // 防止找不到元素报错
+            if (themeName === 'theme-dark') {
+                sunIcon.style.display = "block";
+                moonIcon.style.display = "none";
             } else {
-                $("nav").css({ position: "absolute", top: scroll - 20, background: "var(--hljs-bg)" });
-                document.getElementById("jssector").style.background = "var(--hljs-bg)";
+                sunIcon.style.display = "none";
+                moonIcon.style.display = "block";
             }
         }
-        else {
-            if (scroll < 680) {
-                $("nav").css({ position: "fixed", top: -680 + scroll, background: "var(--theme)" });
-                document.getElementById("jssector").style.background = " linear-gradient(to bottom,var(--theme), var(--hljs-bg))";
 
-            }
-            else {
-                $("nav").css({ position: "fixed", top: 0, background: "var(--theme)" });
-                document.getElementById("jssector").style.background = " linear-gradient(to bottom,var(--theme), var(--hljs-bg))";
+        function toggleTheme() {
+            if (localStorage.getItem('theme') === 'theme-dark') {
+                setTheme('theme-light');
+            } else {
+                setTheme('theme-dark');
             }
         }
-    });
-</script>
+
+        // 页面加载完成后，根据当前主题修正图标状态
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentTheme = localStorage.getItem('theme') || 'theme-light';
+            updateIcons(currentTheme);
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            // 缓存 DOM 元素，避免在滚动时重复查询，提升性能
+            var $nav = $("nav");
+            var jsSector = document.getElementById("jssector");
+
+            $(window).scroll(function () {
+                var scroll = $(window).scrollTop();
+
+                // 提取 CSS 变量，方便统一管理
+                var bgHljs = "var(--hljs-bg)";
+                var bgTheme = "var(--theme)";
+                var gradient = "linear-gradient(to bottom, var(--theme), var(--hljs-bg))";
+
+                if (scroll < 150) {
+                    if (scroll < 30) {
+                        $nav.css({ position: "absolute", top: "10px", background: bgHljs });
+                        if (jsSector) jsSector.style.background = bgHljs;
+                    } else {
+                        $nav.css({ position: "absolute", top: scroll - 20, background: bgHljs });
+                        if (jsSector) jsSector.style.background = bgHljs;
+                    }
+                } else {
+                    if (scroll < 680) {
+                        // 注意：这里的 680 是硬编码，如果你的 header 高度改变，这里可能需要调整
+                        $nav.css({ position: "fixed", top: -680 + scroll, background: bgTheme });
+                        if (jsSector) jsSector.style.background = gradient;
+                    } else {
+                        $nav.css({ position: "fixed", top: 0, background: bgTheme });
+                        if (jsSector) jsSector.style.background = gradient;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
 
 </html>

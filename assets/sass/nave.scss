@@ -99,3 +99,28 @@ nav ul {
     display: none;
   }
 }
+
+/* 默认情况（电脑/平板）：保持你原来的 vmin 逻辑 */
+.header-spacer {
+  height: 10vmin;
+  min-height: 80px;
+  /* 增加一个最小高度保底，防止电脑浏览器窗口压得很扁时重叠 */
+}
+
+/* 首页特有高度 */
+.header-spacer.home-spacer {
+  height: 20vmin;
+  min-height: 120px;
+}
+
+/* 针对手机端（通常宽度小于 768px） */
+@media screen and (max-width: 768px) {
+  .header-spacer {
+    /* 手机端强制给一个固定像素高度，通常 80px-100px 足够 */
+    height: 100px !important;
+  }
+
+  .header-spacer.home-spacer {
+    height: 140px !important;
+  }
+}
