@@ -9,14 +9,7 @@
                               <a href="{{ site.Home.RelPermalink }}#jump_to_top">{{ site.Title }}</a>
                               {{ range site.Home.Pages.ByWeight }}
                               &nbsp;&nbsp;&nbsp;
-                              {{/* 3. 判断链接逻辑 (保持你原有的逻辑) */}}
-                              {{ if ne .Params.contentonly true }}
-                              <a href="{{ site.Home.RelPermalink }}#{{ anchorize .Title }}">{{ i18n .Title | default
-                                    .Title }}</a>
-                              {{ else }}
-                              <a href="{{ .RelPermalink }}">{{ i18n .Title | default
-                                    .Title }}</a>
-                              {{ end }}
+                              <a href="{{ .RelPermalink }}">{{ i18n .Title | default .Title }}</a>
 
                               {{ end }}
                         </li>

@@ -81,42 +81,30 @@
             updateIcons(currentTheme);
         });
     </script>
-
     <script>
         $(document).ready(function () {
-            // 缓存 DOM 元素，避免在滚动时重复查询，提升性能
             var $nav = $("nav");
-            var jsSector = document.getElementById("jssector");
+
+            // 初始化检查（防止刷新页面时停在中间位置样式不对）
+            checkScroll();
 
             $(window).scroll(function () {
+                checkScroll();
+            });
+
+            function checkScroll() {
                 var scroll = $(window).scrollTop();
 
-                // 提取 CSS 变量，方便统一管理
-                var bgHljs = "var(--hljs-bg)";
-                var bgTheme = "var(--theme)";
-                var gradient = "linear-gradient(to bottom, var(--theme), var(--hljs-bg))";
-
-                if (scroll < 150) {
-                    if (scroll < 30) {
-                        $nav.css({ position: "absolute", top: "10px", background: bgHljs });
-                        if (jsSector) jsSector.style.background = bgHljs;
-                    } else {
-                        $nav.css({ position: "absolute", top: scroll - 20, background: bgHljs });
-                        if (jsSector) jsSector.style.background = bgHljs;
-                    }
+                // 只要滚动超过 50px，就给导航栏加个背景
+                if (scroll > 50) {
+                    $nav.addClass("nav-scrolled");
                 } else {
-                    if (scroll < 680) {
-                        // 注意：这里的 680 是硬编码，如果你的 header 高度改变，这里可能需要调整
-                        $nav.css({ position: "fixed", top: -680 + scroll, background: bgTheme });
-                        if (jsSector) jsSector.style.background = gradient;
-                    } else {
-                        $nav.css({ position: "fixed", top: 0, background: bgTheme });
-                        if (jsSector) jsSector.style.background = gradient;
-                    }
+                    $nav.removeClass("nav-scrolled");
                 }
-            });
+            }
         });
     </script>
+
 </body>
 
 </html>
