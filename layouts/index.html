@@ -1,0 +1,435 @@
+{{ define "main" }}
+<div class="home-wrapper">
+    <div class="home-container">
+
+        <div class="profile-section">
+            <div class="avatar-container">
+                {{ $avatar := .Params.avatar | default "images/default-avatar.jpg" }}
+                <img src="{{ $avatar | relURL }}" alt="Avatar" class="avatar-img">
+            </div>
+
+            <div class="profile-info">
+                <h1 class="name">{{ .Params.name | default "Your Name" }}</h1>
+                <h2 class="title">{{ .Params.role | default "Your Role" }}</h2>
+
+                <div class="contact-list">
+                    {{ with .Params.contact }}
+
+                    {{ if .email }}
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <a href="mailto:{{ .email }}">{{ .email }}</a>
+                    </div>
+                    {{ end }}
+
+                    {{ if .google_scholar }}
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                        </svg>
+                        <a href="{{ .google_scholar }}" target="_blank">Google Scholar</a>
+                    </div>
+                    {{ end }}
+
+                    {{ if .wechat }}
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M17 10C20.3142 10 23 12.2165 23 14.95C23 16.4867 22.1513 17.8595 20.8182 18.767V21L18.6756 19.7042C18.1265 19.835 17.5642 19.9007 17 19.9C13.6858 19.9 11 17.6835 11 14.95C11 12.2165 13.6858 10 17 10Z" />
+                            <path
+                                d="M10.7657 15.5978C10.033 15.8089 9.24728 15.9231 8.43285 15.9231C7.4893 15.9251 6.55199 15.7679 5.65934 15.4578L3.12367 17V13.9835C1.81018 12.8183 1 11.2223 1 9.46154C1 5.89262 4.3278 3 8.43285 3C12.4487 3 15.7202 5.76769 15.8657 9.23V9.48092M9.49469 7.30769H9.50531M6.30918 7.30769H6.3198M14.8039 13.7692H14.8145M17.9894 13.7692H18" />
+                        </svg>
+                        <span>{{i18n "WeChat"}}: {{ .wechat }}</span>
+                    </div>
+                    {{ end }}
+
+                    {{ if .address }}
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>{{ .address }}</span>
+                    </div>
+                    {{ end }}
+
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+
+            {{ if .Params.highlights }}
+            <div class="info-block">
+                <h3 class="section-title">Research Highlights</h3>
+                <div class="highlight-grid">
+                    {{ range .Params.highlights }}
+                    <div class="highlight-card">
+                        <div class="icon-box">{{ .icon }}</div>
+                        <div class="text-box">
+                            <strong>{{ .title }}</strong>
+                            <p>{{ .desc }}</p>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+
+            {{ if .Params.work }}
+            <div class="info-block">
+                <h3 class="section-title">Work Experience</h3>
+                <div class="timeline">
+                    {{ range .Params.work }}
+                    <div class="timeline-item">
+                        <span class="year">{{ .year }}</span>
+                        <div class="school-info">
+                            <strong>{{ .role }}</strong>
+                            <p>{{ .company }}</p>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+
+            {{ if .Params.education }}
+            <div class="info-block">
+                <h3 class="section-title">Education</h3>
+                <div class="timeline">
+                    {{ range .Params.education }}
+                    <div class="timeline-item">
+                        <span class="year">{{ .year }}</span>
+                        <div class="school-info">
+                            <strong>{{ .degree }}</strong>
+                            <p>{{ .school }}</p>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+            {{ end }}
+
+        </div>
+    </div>
+</div>
+
+<style>
+    /* ================= 布局基础 ================= */
+    .home-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 80px;
+    }
+
+    .home-container {
+        /* 【关键修改1】宽度改大！原来是 1100px，现在改为 1500px */
+        /* 或者你可以写 90% 让它总是占满屏幕宽度的 90% */
+        max-width: 1500px;
+        width: 92%;
+        /* 左右留一点点呼吸感，不要贴边 */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 80px;
+        /* 增加左右两栏的间距，更大气 */
+        align-items: flex-start;
+        padding-top: 20px;
+    }
+
+    /* ================= 左侧 Profile ================= */
+    .profile-section {
+        /* 【关键修改2】固定左侧宽度，防止它被拉得太宽不好看 */
+        flex: 0 0 320px;
+        display: flex;
+        flex-direction: column;
+        position: sticky;
+        top: 100px;
+    }
+
+    /* 找到原来的这两个 CSS 类，替换成下面这样 */
+
+    .avatar-container {
+        /* 【核心修改】加大尺寸！从 200px 改为 280px */
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 35px;
+        /* 底部间距也稍微加大一点 */
+        /* 让大头像的阴影更明显一些，更有质感 */
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .avatar-img {
+        width: 100%;
+        height: 100%;
+        /* 保持 cover 不变，它会确保图片填满圆形且不变形 */
+        /* 因为容器变大了，现在应该能显示出更多的肩膀/胸部区域，而不只是脸 */
+        object-fit: cover;
+        /* 如果你觉得头顶被切掉了，可以取消下面这行的注释试试 */
+        object-position: center 25%;
+    }
+
+    .name {
+        font-size: 2.8rem;
+        /* 名字加大 */
+        font-weight: 700;
+        margin: 0 0 10px 0;
+        color: var(--color-text, #1e293b);
+        line-height: 1.1;
+    }
+
+    .title {
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: #64748b;
+        margin: 0 0 30px 0;
+    }
+
+    .contact-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1rem;
+        color: #475569;
+    }
+
+    .contact-item a {
+        color: #475569;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+
+    .contact-item a:hover {
+        color: #2563eb;
+    }
+
+    .contact-item svg {
+        width: 20px;
+        height: 20px;
+        opacity: 0.7;
+    }
+
+    /* ================= 右侧 Content ================= */
+    .content-section {
+        flex: 1;
+        /* 让右侧自动占据剩余所有空间 */
+        min-width: 0;
+        /* 防止 grid 撑破布局 */
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+        /* 增加板块间距 */
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 15px;
+        margin-bottom: 25px;
+        color: var(--color-text, #1e293b);
+    }
+
+    /* 【关键修改3】让卡片变成网格布局 (双列显示) */
+    .highlight-grid {
+        display: grid;
+        /* 只要空间允许，至少显示 340px 宽，能放两个就放两个 */
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 25px;
+    }
+
+    .highlight-card {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 25px;
+        /* 卡片内边距加大 */
+        border-radius: 12px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        transition: transform 0.2s, box-shadow 0.2s;
+        height: 100%;
+        /* 保证同一行的卡片等高 */
+    }
+
+    .highlight-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+        border-color: #cbd5e1;
+    }
+
+    .icon-box {
+        font-size: 1.8rem;
+        line-height: 1;
+        flex-shrink: 0;
+    }
+
+    .text-box strong {
+        display: block;
+        font-size: 1.15rem;
+        margin-bottom: 8px;
+        color: var(--color-text, #0f172a);
+    }
+
+    .text-box p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: #64748b;
+        line-height: 1.6;
+    }
+
+    /* 时间轴 */
+    .timeline {
+        border-left: 3px solid #e2e8f0;
+        /* 线条加粗一点 */
+        padding-left: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .timeline-item {
+        position: relative;
+    }
+
+    .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -38px;
+        /* 调整圆点位置 */
+        top: 6px;
+        width: 12px;
+        height: 12px;
+        background: #fff;
+        border: 3px solid #3b82f6;
+        border-radius: 50%;
+    }
+
+    .year {
+        display: inline-block;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #3b82f6;
+        background: #eff6ff;
+        padding: 4px 10px;
+        border-radius: 6px;
+        margin-bottom: 8px;
+        font-family: monospace;
+    }
+
+    .school-info strong {
+        display: block;
+        font-size: 1.2rem;
+        color: var(--color-text, #0f172a);
+    }
+
+    .school-info p {
+        margin: 4px 0 0 0;
+        font-size: 1rem;
+        color: #64748b;
+    }
+
+    /* ================= 移动端适配 ================= */
+    @media (max-width: 1000px) {
+        .home-container {
+            flex-direction: column;
+            gap: 50px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .profile-section {
+            position: static;
+            flex: auto;
+            width: 100%;
+            align-items: center;
+            text-align: center;
+        }
+
+        .highlight-grid {
+            /* 手机上强制单列，防止太挤 */
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* ================= 深色模式适配 ================= */
+    html.theme-dark .name {
+        color: #f1f5f9;
+    }
+
+    html.theme-dark .title {
+        color: #94a3b8;
+    }
+
+    html.theme-dark .contact-item {
+        color: #cbd5e1;
+    }
+
+    html.theme-dark .contact-item a {
+        color: #cbd5e1;
+    }
+
+    html.theme-dark .section-title {
+        border-bottom-color: #334155;
+        color: #f1f5f9;
+    }
+
+    html.theme-dark .highlight-card {
+        background: #1e293b;
+        border-color: #334155;
+    }
+
+    html.theme-dark .highlight-card:hover {
+        border-color: #475569;
+        background: #253348;
+    }
+
+    html.theme-dark .text-box strong {
+        color: #e2e8f0;
+    }
+
+    html.theme-dark .text-box p {
+        color: #94a3b8;
+    }
+
+    html.theme-dark .timeline {
+        border-left-color: #334155;
+    }
+
+    html.theme-dark .timeline-item::before {
+        background: #0f172a;
+        border-color: #60a5fa;
+    }
+
+    html.theme-dark .year {
+        background: rgba(59, 130, 246, 0.2);
+        color: #93c5fd;
+    }
+
+    html.theme-dark .school-info strong {
+        color: #e2e8f0;
+    }
+
+    html.theme-dark .school-info p {
+        color: #94a3b8;
+    }
+</style>
+{{ end }}

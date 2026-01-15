@@ -1,0 +1,43 @@
+
+
+title = "Le's Blog"
+description = 'This is my blog!'
+copyright = 'Copyright &copy;  Le  &nbsp;&bull;&nbsp; 2019-{year}'
+baseURL= "https://www.lchang.me/"
+
+enableEmoji=true
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+  
+[languages]
+  [languages.en]
+    languageName = 'En'
+    title = "Home"
+  [languages.cn]
+    languageName = 'Cn'
+    title = "首页"
+
+
+[module]
+  [[module.mounts]]
+    source = "content/en"
+    target = "content"
+    lang="en"
+
+  [[module.mounts]]
+    source = "content/cn"
+    target = "content"
+    lang="cn"
+
+  [[module.mounts]]
+    source = "content/common"
+    target = "content"
+    lang="en"
+
+    [[module.mounts]]
+    source = "content/common"
+    target = "content"
+    lang="cn"

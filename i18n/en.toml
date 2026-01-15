@@ -1,0 +1,23 @@
+[read]
+other = "Read More"
+
+[Pub]
+other = "Publications"
+
+[Tp]
+other="Topics"
+
+[backToSection]
+other = "↩︎ Back to Topics"
+
+[pageNotFound]
+other = "Page Not Found"
+
+[pageNotFoundDesc]
+other = "The page you are looking for does not exist."
+
+[goHome]
+other = "Go Home"
+
+[WeChat]
+other ="WeChat"

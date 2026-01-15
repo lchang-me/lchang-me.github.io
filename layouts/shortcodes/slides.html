@@ -1,0 +1,182 @@
+{{/* Shortcode: slides (防抖动稳健版) */}}
+{{ $folder := .Get "folder" | default "slides" }}
+{{ $matchPattern := printf "%s/*" $folder }}
+{{ $resources := .Page.Resources.Match $matchPattern }}
+{{ $images := sort $resources "Name" "asc" }}
+{{ $uniqueID := substr (md5 .Position) 0 8 }}
+
+{{ if not $images }}
+<div style="color: red; border: 1px solid red; padding: 10px;">
+    Error: 文件夹 <code>{{ $folder }}</code> 为空或路径错误。
+</div>
+{{ else }}
+
+<div class="ppt-viewer" id="ppt-viewer-{{ $uniqueID }}">
+
+    <div class="ppt-screen">
+        {{ range $index, $img := $images }}
+        <div class="ppt-slide {{ if eq $index 0 }}active{{ end }}" data-index="{{ $index }}">
+            <img src="{{ $img.RelPermalink }}" alt="{{ $img.Name }}" loading="lazy">
+        </div>
+        {{ end }}
+    </div>
+
+    <div class="ppt-controls">
+        <button type="button" class="btn-prev">← Prev</button>
+
+        <span class="ppt-counter">
+            <span class="current-page">1</span> / <span class="total-pages">{{ len $images }}</span>
+        </span>
+
+        <button type="button" class="btn-next">Next →</button>
+    </div>
+
+</div>
+
+<script>
+    (function () {
+        const viewerId = "ppt-viewer-{{ $uniqueID }}";
+        const container = document.getElementById(viewerId);
+        if (!container) return;
+
+        const slides = container.querySelectorAll('.ppt-slide');
+        const btnPrev = container.querySelector('.btn-prev');
+        const btnNext = container.querySelector('.btn-next');
+        const currentSpan = container.querySelector('.current-page');
+
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+
+        function updateSlide(newIndex) {
+            if (newIndex < 0 || newIndex >= totalSlides) return;
+
+            // 移除旧的 active
+            slides[currentIndex].classList.remove('active');
+
+            // 更新索引
+            currentIndex = newIndex;
+
+            // 添加新的 active
+            slides[currentIndex].classList.add('active');
+
+            // 更新页码
+            currentSpan.textContent = currentIndex + 1;
+
+            // 按钮状态
+            btnPrev.disabled = (currentIndex === 0);
+            btnNext.disabled = (currentIndex === totalSlides - 1);
+
+            // 关键：点击后移除按钮焦点，防止浏览器为了对齐焦点而滚动
+            btnPrev.blur();
+            btnNext.blur();
+        }
+
+        updateSlide(0);
+
+        // 绑定事件，使用 stopPropagation 防止冒泡
+        btnPrev.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            updateSlide(currentIndex - 1);
+        });
+
+        btnNext.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            updateSlide(currentIndex + 1);
+        });
+    })();
+</script>
+
+<style>
+    /* 容器 */
+    .ppt-viewer {
+        max-width: 800px;
+        margin: 30px auto;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    /* 核心修改：使用 Grid 布局解决高度塌陷 */
+    .ppt-screen {
+        display: grid;
+        /* 让所有幻灯片都在同一个格子里重叠 */
+        grid-template-areas: "stack";
+        width: 100%;
+        background: #f8f8f8;
+        align-items: center;
+        justify-items: center;
+        /* 给一个最小高度，防止图片没加载出来时塌陷 */
+        min-height: 300px;
+        transition: height 0.3s ease;
+    }
+
+    .ppt-slide {
+        /* 所有图片都放在 "stack" 这一格 */
+        grid-area: stack;
+        width: 100%;
+
+        /* 默认状态：透明，但不隐藏 (display:block)，这样它能撑开高度 */
+        opacity: 0;
+        z-index: 0;
+        transition: opacity 0.4s ease;
+
+        /* 防止点击到隐藏的图片 */
+        pointer-events: none;
+    }
+
+    .ppt-slide.active {
+        /* 激活状态：不透明，层级最高 */
+        opacity: 1;
+        z-index: 1;
+        pointer-events: auto;
+    }
+
+    .ppt-slide img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 85vh;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+
+    /* 控制栏 */
+    .ppt-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px;
+        border-top: 1px solid #eee;
+        background: #fff;
+        z-index: 2;
+        /* 确保控制栏在最上层 */
+        position: relative;
+    }
+
+    .ppt-controls button {
+        background-color: #f5f5f5;
+        border: 1px solid #dcdcdc;
+        border-radius: 4px;
+        padding: 8px 16px;
+        cursor: pointer;
+        color: #333;
+    }
+
+    .ppt-controls button:hover:not(:disabled) {
+        background-color: #e8e8e8;
+    }
+
+    .ppt-controls button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .ppt-counter {
+        font-family: monospace;
+        color: #666;
+    }
+</style>
+{{ end }}

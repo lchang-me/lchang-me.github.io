@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Lang | default " zh-cn" }}">
+
+{{ partial "meta.html" . }}
+
+<body>
+    <script>
+        (function () {
+            const storageTheme = localStorage.getItem('theme');
+            const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            // 如果有缓存，用缓存；如果没有，跟随系统
+            if (storageTheme) {
+                document.documentElement.className = storageTheme;
+            } else if (systemDark) {
+                document.documentElement.className = 'theme-dark';
+                localStorage.setItem('theme', 'theme-dark');
+            } else {
+                document.documentElement.className = 'theme-light';
+                localStorage.setItem('theme', 'theme-light');
+            }
+        })();
+    </script>
+
+    <div id="jump_to_top"></div>
+
+    <header>
+        {{partial "header.html" .}}
+
+        {{ if .IsHome }}
+        <div style="height: max(20vmin, 120px);"></div>
+        {{ else }}
+        <div style="height: max(10vmin, 100px);"></div>
+        {{ end }}
+
+        {{partial "nav.html" .}}
+    </header>
+
+    <main>
+        {{ block "main" . }}
+        {{ end }}
+    </main>
+
+    <footer>
+        {{ partial "footer.html" . }}
+    </footer>
+
+    <script>
+        // 这里的元素ID (sun, moon) 需要确保在 header/nav partial 中存在
+        const sunIcon = document.getElementById("sun");
+        const moonIcon = document.getElementById("moon");
+
+        function setTheme(themeName) {
+            localStorage.setItem('theme', themeName);
+            document.documentElement.className = themeName;
+            updateIcons(themeName);
+        }
+
+        function updateIcons(themeName) {
+            if (!sunIcon || !moonIcon) return; // 防止找不到元素报错
+            if (themeName === 'theme-dark') {
+                sunIcon.style.display = "block";
+                moonIcon.style.display = "none";
+            } else {
+                sunIcon.style.display = "none";
+                moonIcon.style.display = "block";
+            }
+        }
+
+        function toggleTheme() {
+            if (localStorage.getItem('theme') === 'theme-dark') {
+                setTheme('theme-light');
+            } else {
+                setTheme('theme-dark');
+            }
+        }
+
+        // 页面加载完成后，根据当前主题修正图标状态
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentTheme = localStorage.getItem('theme') || 'theme-light';
+            updateIcons(currentTheme);
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            var $nav = $("nav");
+
+            // 初始化检查（防止刷新页面时停在中间位置样式不对）
+            checkScroll();
+
+            $(window).scroll(function () {
+                checkScroll();
+            });
+
+            function checkScroll() {
+                var scroll = $(window).scrollTop();
+
+                // 只要滚动超过 50px，就给导航栏加个背景
+                if (scroll > 50) {
+                    $nav.addClass("nav-scrolled");
+                } else {
+                    $nav.removeClass("nav-scrolled");
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>

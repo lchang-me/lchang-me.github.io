@@ -1,0 +1,59 @@
+{{/* Shortcode: item */}}
+{{/* 参数: title, authors, journal, year, doi, pdf, bib, issue, volume */}}
+
+<div class="pub-card">
+
+  <div class="pub-year-badge">
+    {{ .Get "year" | default "202X" }}
+  </div>
+
+  <div class="pub-content">
+    <h3 class="pub-title">
+      {{ if .Get "doi" }}
+      <a href="{{ .Get " doi" }}" target="_blank">{{ .Get "title" }}</a>
+      {{ else }}
+      {{ .Get "title" }}
+      {{ end }}
+    </h3>
+
+    <div class="pub-authors">
+      {{ .Get "authors" | markdownify }}
+    </div>
+
+    <div class="pub-journal">
+      <span class="journal-name">{{ .Get "journal" }}</span>
+      {{ if .Get "volume" }}, Vol. {{ .Get "volume" }}{{ end }}
+      {{ if .Get "issue" }}, Issue {{ .Get "issue" }}{{ end }}
+      {{ if .Get "pages" }}, pp. {{ .Get "pages" }}{{ end }}.
+    </div>
+
+    <div class="pub-actions">
+
+      {{ if .Get "doi" }}
+      <a href="{{ .Get " doi" }}" target="_blank" class="btn-action btn-doi">
+        DOI
+      </a>
+      {{ end }}
+
+      {{ if .Get "pdf" }}
+      <a href="{{ .Get " pdf" }}" target="_blank" class="btn-action btn-pdf">
+        <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        PDF
+      </a>
+      {{ end }}
+
+      {{ if .Get "bib" }}
+      <a href="{{ .Get " bib" }}" target="_blank" class="btn-action btn-bib">
+        BibTeX
+      </a>
+      {{ end }}
+
+    </div>
+  </div>
+</div>

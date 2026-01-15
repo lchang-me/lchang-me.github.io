@@ -1,0 +1,66 @@
+<nav class="navbar"
+      style="position: absolute; top: 10px; margin: auto; width: 100%; background: var(--hljs-bg);padding: 0; z-index: 100;">
+
+
+      <div style="display: flex;width: 90%;margin: auto;">
+            <div id="mybar" style="margin-left: 0; margin-top: auto; margin-bottom: auto; margin-right: auto;">
+                  <ul>
+                        <li>
+                              <a href="{{ site.Home.RelPermalink }}#jump_to_top">{{ site.Title }}</a>
+                              {{ range site.Home.Pages.ByWeight }}
+                              &nbsp;&nbsp;&nbsp;
+                              <a href="{{ .RelPermalink }}">{{ i18n .Title | default .Title }}</a>
+
+                              {{ end }}
+                        </li>
+                  </ul>
+            </div>
+            <div style="margin: auto; margin-right: 0;">
+                  <ul class="language-list">
+
+                        <li class="theme-toggle">
+                              <button onclick="toggleTheme()"
+                                    style="background: none; border: none; cursor: pointer; padding: 0; width: 30px; height: 30px; position: relative; z-index: 999; display: flex; align-items: center; justify-content: center;">
+
+                                    <svg id="sun" viewBox="0 0 24 24" fill="none" stroke="orange" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round"
+                                          style="width: 24px; height: 24px; position: absolute; display: none;">
+                                          <circle cx="12" cy="12" r="5"></circle>
+                                          <line x1="12" y1="1" x2="12" y2="3"></line>
+                                          <line x1="12" y1="21" x2="12" y2="23"></line>
+                                          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                          <line x1="1" y1="12" x2="3" y2="12"></line>
+                                          <line x1="21" y1="12" x2="23" y2="12"></line>
+                                          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                                    </svg>
+
+                                    <svg id="moon" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round"
+                                          style="width: 24px; height: 24px; position: absolute; display: block;">
+                                          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                                    </svg>
+                              </button>
+                        </li>
+
+                        {{ range $i,$j := $.Site.Home.AllTranslations }}
+                        {{- if $i -}}
+                        <li>&nbsp;&bull;&nbsp;</li>
+                        {{ end -}}
+                        <li><a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+                        {{ end }}
+
+                  </ul>
+            </div>
+
+      </div>
+
+
+
+
+      <div id="jssector"
+            style="width: 100%; height:1.5vmin; padding:0; background: linear-gradient(to bottom,var(--hljs-bg), var(--hljs-bg)) ; ">
+      </div>
+
+</nav>
