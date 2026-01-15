@@ -7,6 +7,10 @@ baseURL= "https://www.lchang.me/"
 
 enableEmoji=true
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
 [taxonomies]
   tag = "tags"
   category = "categories"
