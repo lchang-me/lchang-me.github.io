@@ -1,69 +1,59 @@
-<blockquote class="padsing" style="text-decoration: none;">
-  <p class="auto">{{ .Get "author" | markdownify}}, <a style="font-style:italic">{{ .Get "title" }}</a>,
-    <a style="font-weight: bold;">{{ .Get "pub" }}</a>,
-    {{ if (.Get "year") }}
-    ({{ .Get "year" }}),
-    {{ end }}
-    {{ if ( .Get "data") }}
-    {{ .Get "data"}}.
-    {{ end }}
-    {{ if (.Get "volume") }}
-    Volume {{ .Get "volume" }},
-    {{ end }}
-    {{ if (.Get "number") }}
-    Issue {{ .Get "number" }},
-    {{ end }}
-    {{ if (.Get "pages") }}
-    Pages {{ .Get "pages" }}.
-    {{ end }}
-    {{if (.Get "online")}}
-    Published Online.
-    {{ end }}
-    <br>
-  <div class="publication-row">
+{{/* Shortcode: item */}}
+{{/* 参数: title, authors, journal, year, doi, pdf, bib, issue, volume */}}
 
-    {{ $doi := .Get "doi" }}
-    {{ $bib := .Get "bib" }}
-    {{ $pdf := .Get "ref" }} {{ with $doi }}
-    <span class="doi-text">
-      doi: <a href="https://doi.org/{{ . }}" target="_blank">{{ . }}</a>
-    </span>
-    {{ end }}
+<div class="pub-card">
 
-    <div style="float: right;">
+  <div class="pub-year-badge">
+    {{ .Get "year" | default "202X" }}
+  </div>
 
-      {{ if $pdf }}
-      {{/* 尝试在当前页面的资源里找这个文件 */}}
-      {{ $pdfResource := .Page.Resources.GetMatch $pdf }}
-
-      {{/* 如果找到了资源，用资源的链接；如果没找到，就用原本的字符串(可能是外部链接) */}}
-      {{ $pdfLink := "" }}
-      {{ if $pdfResource }}
-      {{ $pdfLink = $pdfResource.RelPermalink }}
+  <div class="pub-content">
+    <h3 class="pub-title">
+      {{ if .Get "doi" }}
+      <a href="{{ .Get " doi" }}" target="_blank">{{ .Get "title" }}</a>
       {{ else }}
-      {{ $pdfLink = $pdf }}
+      {{ .Get "title" }}
+      {{ end }}
+    </h3>
+
+    <div class="pub-authors">
+      {{ .Get "authors" | markdownify }}
+    </div>
+
+    <div class="pub-journal">
+      <span class="journal-name">{{ .Get "journal" }}</span>
+      {{ if .Get "volume" }}, Vol. {{ .Get "volume" }}{{ end }}
+      {{ if .Get "issue" }}, Issue {{ .Get "issue" }}{{ end }}
+      {{ if .Get "pages" }}, pp. {{ .Get "pages" }}{{ end }}.
+    </div>
+
+    <div class="pub-actions">
+
+      {{ if .Get "doi" }}
+      <a href="{{ .Get " doi" }}" target="_blank" class="btn-action btn-doi">
+        DOI
+      </a>
       {{ end }}
 
-      <a class="badge-link" href="{{ $pdfLink }}" target="_blank">PDF</a>
+      {{ if .Get "pdf" }}
+      <a href="{{ .Get " pdf" }}" target="_blank" class="btn-action btn-pdf">
+        <svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2" fill="none">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        PDF
+      </a>
       {{ end }}
 
-      {{ if $bib }}
-      {{/* 同样逻辑：去资源里找文件 */}}
-      {{ $bibResource := .Page.Resources.GetMatch $bib }}
-
-      {{ $bibLink := "" }}
-      {{ if $bibResource }}
-      {{ $bibLink = $bibResource.RelPermalink }}
-      {{ else }}
-      {{ $bibLink = $bib }}
-      {{ end }}
-
-      &nbsp;
-      <a class="badge-bib" href="{{ $bibLink }}" target="_blank">BIB</a>
+      {{ if .Get "bib" }}
+      <a href="{{ .Get " bib" }}" target="_blank" class="btn-action btn-bib">
+        BibTeX
+      </a>
       {{ end }}
 
     </div>
-    <div style="clear: both;"></div>
   </div>
-  </p>
-</blockquote>
+</div>

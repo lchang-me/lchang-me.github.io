@@ -1,9 +1,54 @@
+/* 强制去除页面的默认边距 */
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+/* --- 导航栏基础样式 --- */
 nav {
-  padding: 10px;
-  width: 80%;
-  margin: auto;
-  display: block;
-  color: var(--primary);
+  position: fixed !important;
+  /* 强制固定在顶部 */
+  top: 0 !important;
+  margin-top: 0 !important;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  transition: all 0.3s ease;
+  /* 丝滑过渡 */
+  background: transparent;
+  /* 默认透明 */
+  padding: 15px 0;
+  /* 默认稍微宽松一点 */
+}
+
+/* --- 滚动后的样式 (由 JS 添加 class) --- */
+nav.nav-scrolled {
+  padding: 10px 0;
+  /* 滚动后变紧凑 */
+  background: rgba(255, 255, 255, 0.9);
+  /* 亮色模式：半透明白 */
+  backdrop-filter: blur(10px);
+  /* 苹果风格的毛玻璃 */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  /* 淡淡的阴影 */
+}
+
+/* --- 深色模式适配 --- */
+html.theme-dark nav.nav-scrolled {
+  background: rgba(15, 23, 42, 0.9);
+  /* 深色模式：半透明黑蓝 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* 确保导航栏里的链接颜色正确 */
+nav a {
+  color: var(--color-text, #333);
+  transition: color 0.3s;
+}
+
+html.theme-dark nav a {
+  color: #f1f5f9;
 }
 
 nav ul {
@@ -123,4 +168,214 @@ nav ul {
   .header-spacer.home-spacer {
     height: 140px !important;
   }
+}
+
+/* --- 布局容器 --- */
+.pub-single-wrapper {
+  padding: 60px 20px;
+  background: #fff;
+  min-height: 80vh;
+}
+
+.pub-single-container {
+  max-width: 800px;
+  /* 详情页窄一点，利于阅读 */
+  margin: 0 auto;
+}
+
+/* --- 返回按钮 --- */
+.btn-back {
+  display: inline-block;
+  margin-bottom: 30px;
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.btn-back:hover {
+  color: #2563eb;
+  transform: translateX(-3px);
+  /* 小小的位移交互 */
+}
+
+/* --- 头部信息 --- */
+.pub-h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  color: #1e293b;
+}
+
+.pub-authors {
+  font-size: 1.1rem;
+  color: #334155;
+  margin-bottom: 10px;
+}
+
+.pub-authors strong {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.pub-journal-info {
+  font-size: 1rem;
+  color: #0f766e;
+  /* 青色，与列表页一致 */
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+/* --- 按钮组 (复用之前的风格，稍微加大一点) --- */
+.pub-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+/* 具体的按钮颜色样式复用之前的 btn-pdf, btn-doi 等即可 */
+.btn-code {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+
+.btn-code:hover {
+  background: #e5e7eb;
+  color: #000;
+}
+
+.btn-slides {
+  background: #fff7ed;
+  color: #ea580c;
+  border-color: #ffedd5;
+}
+
+.btn-slides:hover {
+  background: #ea580c;
+  color: #fff;
+}
+
+.pub-divider {
+  border: 0;
+  border-top: 1px solid #e2e8f0;
+  margin: 40px 0;
+}
+
+/* --- 摘要与正文 --- */
+.pub-abstract {
+  background: #f8fafc;
+  padding: 25px;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+  margin-bottom: 40px;
+}
+
+.pub-abstract h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.pub-abstract p {
+  margin: 0;
+  line-height: 1.7;
+  color: #475569;
+}
+
+.pub-content {
+  line-height: 1.8;
+  color: #334155;
+  font-size: 1.05rem;
+}
+
+.pub-content img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+/* --- BibTeX --- */
+.pub-bibtex {
+  margin-top: 60px;
+}
+
+.pub-bibtex h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #1e293b;
+}
+
+.pub-bibtex pre {
+  background: #f1f5f9;
+  padding: 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+/* --- 深色模式适配 --- */
+html.theme-dark .pub-single-wrapper {
+  background: #0f172a;
+}
+
+html.theme-dark .pub-h1 {
+  color: #f1f5f9;
+}
+
+html.theme-dark .pub-authors {
+  color: #cbd5e1;
+}
+
+html.theme-dark .pub-authors strong {
+  color: #fff;
+}
+
+html.theme-dark .pub-abstract {
+  background: #1e293b;
+  border-left-color: #60a5fa;
+}
+
+html.theme-dark .pub-abstract h3 {
+  color: #e2e8f0;
+}
+
+html.theme-dark .pub-abstract p {
+  color: #94a3b8;
+}
+
+html.theme-dark .pub-bibtex pre {
+  background: #1e293b;
+  border-color: #334155;
+  color: #cbd5e1;
+}
+
+html.theme-dark .pub-content {
+  color: #cbd5e1;
+}
+
+html.theme-dark .btn-back {
+  color: #94a3b8;
+}
+
+html.theme-dark .btn-back:hover {
+  color: #60a5fa;
 }
