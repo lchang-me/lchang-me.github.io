@@ -41,7 +41,7 @@ work:
 education:
   - year: "2012 - 2020"
     degree: "Ph.D. in Control Science"
-    school: "Shanghai University"
+    school: "Shandong University"
 
   - year: "2017 - 2019"
     degree: "Visitor Student in Software Engineering"
@@ -49,7 +49,7 @@ education:
 
   - year: "2008 - 2012"
     degree: "B.S. in Mathematics"
-    school: "Shanghai University"
+    school: "Shandong University"
 
 
 ---
