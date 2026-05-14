@@ -2,7 +2,7 @@
 title: "Wideband Harmonic Suppression of Grid-Connected Inverter With Small DC-Side Capacitance Under Weak Grids Considering the PLL Effect"
 date: 2026-05-11
 authors: "Zuohang Hu, Xiangyang Xing, Yan Li, Haiyang Wang, **Le Chang**, Frede Blaabjerg"
-journal:IEEE Transactions on Power Electronics 
+journal: IEEE Transactions on Power Electronics 
 pdf: "/files/2602.pdf"
 doi: "https://doi.org/10.1109/TPEL.2026.3692367"
 
