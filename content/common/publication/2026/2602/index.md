@@ -3,7 +3,7 @@ title: "Wideband Harmonic Suppression of Grid-Connected Inverter With Small DC-S
 date: 2026-05-11
 authors: "Zuohang Hu, Xiangyang Xing, Yan Li, Haiyang Wang, **Le Chang**, Frede Blaabjerg"
 journal: IEEE Transactions on Power Electronics 
-pdf: "/files/2602.pdf"
+pdf: "2602.pdf"
 doi: "https://doi.org/10.1109/TPEL.2026.3692367"
 
 # 这是一个多行字符串，保留格式
