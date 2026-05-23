@@ -3,7 +3,7 @@ title: "Finite-Time Backstepping Control for Stand-Alone Three-Phase Voltage-Sou
 date: 2026-02-02
 authors: "Shiwei Wu, Dejun Pan, Guanguan Zhang, **Le Chang**, Xiaoling Wang and Cheng Fu"
 journal: Energies
-pdf: "/files/2601.pdf"
+pdf: "2601.pdf"
 doi: "https://doi.org/10.3390/en19030781"
 
 # 这是一个多行字符串，保留格式
