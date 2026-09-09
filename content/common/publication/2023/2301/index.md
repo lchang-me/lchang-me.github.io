@@ -3,10 +3,12 @@ title: Fixed-time stabilization of a class of strict-feedback nonlinear systems 
 date: 2023-02-01
 authors: "Zhang, C., **Chang, L.**, Xing, L. & Zhang, X."
 journal: IEEE/CAA Journal of Automatica Sinica
+volume: "10"
+issue: "2"
+pages: "403–410"
 pdf: "2301.pdf"
 doi: "https://doi.org/10.1109/JAS.2023.123408"
 
-# 这是一个多行字符串，保留格式
 bibtex: |
     @ARTICLE{10024121,
         author={Zhang, Chenghui and Chang, Le and Xing, Lantao and Zhang, Xianfu},
@@ -20,4 +22,3 @@ bibtex: |
     }
 
 ---
-

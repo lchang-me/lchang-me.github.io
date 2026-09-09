@@ -21,3 +21,15 @@ other = "Go Home"
 
 [WeChat]
 other ="WeChat"
+
+[researchHighlights]
+other = "Research Highlights"
+
+[workExperience]
+other = "Work Experience"
+
+[education]
+other = "Education"
+
+[toggleTheme]
+other = "Toggle color theme"

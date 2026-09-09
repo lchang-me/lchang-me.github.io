@@ -1,7 +1,9 @@
 <!doctype html>
-<html lang="{{ .Site.Language.Lang | default " zh-cn" }}">
+<html lang="{{ .Site.Language.Lang | default "zh-CN" }}">
 
-{{ partial "meta.html" . }}
+<head>
+    {{ partial "meta.html" . }}
+</head>
 
 <body>
     <script>
@@ -82,27 +84,15 @@
         });
     </script>
     <script>
-        $(document).ready(function () {
-            var $nav = $("nav");
+        const navbar = document.querySelector("nav");
 
-            // 初始化检查（防止刷新页面时停在中间位置样式不对）
-            checkScroll();
+        function checkScroll() {
+            if (!navbar) return;
+            navbar.classList.toggle("nav-scrolled", window.scrollY > 50);
+        }
 
-            $(window).scroll(function () {
-                checkScroll();
-            });
-
-            function checkScroll() {
-                var scroll = $(window).scrollTop();
-
-                // 只要滚动超过 50px，就给导航栏加个背景
-                if (scroll > 50) {
-                    $nav.addClass("nav-scrolled");
-                } else {
-                    $nav.removeClass("nav-scrolled");
-                }
-            }
-        });
+        checkScroll();
+        window.addEventListener("scroll", checkScroll, { passive: true });
     </script>
 
 </body>

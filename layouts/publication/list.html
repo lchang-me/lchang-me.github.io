@@ -65,12 +65,13 @@
 
                             <div id="tab-ieee-{{ $id }}" class="tab-pane">
                                 <div class="text-citation-box" id="code-ieee-{{ $id }}">
-                                    {{ .Params.authors | markdownify | plainify }}. "{{ .Title }}."
+                                    {{ replace (.Params.authors | markdownify | plainify) "&amp;" "and" }}
+                                    “{{ .Title }},”
                                     <i>{{ .Params.journal }}</i>
                                     {{ if .Params.volume }}, vol. {{ .Params.volume }}{{ end }}
                                     {{ if .Params.issue }}, no. {{ .Params.issue }}{{ end }}
                                     {{ if .Params.pages }}, pp. {{ .Params.pages }}{{ end }},
-                                    {{ .Date.Format "2006" }}.
+                                    {{ .Date.Format "2006" }}{{ if .Params.doi }}, doi: {{ strings.TrimPrefix "https://doi.org/" .Params.doi }}{{ end }}.
                                 </div>
                                 <button class="copy-btn" onclick="copyText('code-ieee-{{ $id }}', this)">Copy
                                     IEEE</button>
@@ -80,10 +81,8 @@
                                 <div class="text-citation-box" id="code-apa-{{ $id }}">
                                     {{ .Params.authors | markdownify | plainify }} ({{ .Date.Format "2006" }}).
                                     {{ .Title }}.
-                                    <i>{{ .Params.journal }}</i>
-                                    {{ if .Params.volume }}, <i>{{ .Params.volume }}</i>{{ end }}
-                                    {{ if .Params.issue }}({{ .Params.issue }}){{ end }}
-                                    {{ if .Params.pages }}, {{ .Params.pages }}{{ end }}.
+                                    {{ if eq .Params.publication_type "conference" }}In <i>{{ .Params.journal }}</i>{{ if .Params.pages }} (pp. {{ .Params.pages }}){{ end }}.{{ else }}<i>{{ .Params.journal }}</i>{{ if .Params.volume }}, <i>{{ .Params.volume }}</i>{{ end }}{{ if .Params.issue }}({{ .Params.issue }}){{ end }}{{ if .Params.pages }}, {{ .Params.pages }}{{ end }}.{{ end }}
+                                    {{ if .Params.doi }}{{ .Params.doi }}{{ end }}
                                 </div>
                                 <button class="copy-btn" onclick="copyText('code-apa-{{ $id }}', this)">Copy
                                     APA</button>

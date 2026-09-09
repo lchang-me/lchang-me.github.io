@@ -1,11 +1,12 @@
 ---
 title: "Prescribed-Time Adaptive Control for Stand-Alone Three-Phase Inverters with Current Constraints"
 date: 2026-05-11
-authors: "Shiwei Wu, Shuai Zhang, Cheng Fu, **Le Chang**, Dejun Pan, Yuankang Zhang"
-journal: 2026 IEEE 4th International Conference on Power Science and Technology (ICPST) 
+authors: "Wu, S., Zhang, S., Fu, C., **Chang, L.**, Pan, D., & Zhang, Y."
+journal: 2026 IEEE 4th International Conference on Power Science and Technology (ICPST)
+publication_type: conference
+pages: "140–144"
 doi: "https://doi.org/10.1109/ICPST69917.2026.11637405"
 
-# 这是一个多行字符串，保留格式
 bibtex: |
   @INPROCEEDINGS{11637405,
   author={Wu, Shiwei and Zhang, Shuai and Fu, Cheng and Chang, Le and Pan, Dejun and Zhang, Yuankang},

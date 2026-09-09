@@ -20,6 +20,7 @@
 
                         <li class="theme-toggle">
                               <button onclick="toggleTheme()"
+                                    type="button" aria-label="{{ i18n "toggleTheme" }}" title="{{ i18n "toggleTheme" }}"
                                     style="background: none; border: none; cursor: pointer; padding: 0; width: 30px; height: 30px; position: relative; z-index: 999; display: flex; align-items: center; justify-content: center;">
 
                                     <svg id="sun" viewBox="0 0 24 24" fill="none" stroke="orange" stroke-width="2"
@@ -48,7 +49,7 @@
                         {{- if $i -}}
                         <li>&nbsp;&bull;&nbsp;</li>
                         {{ end -}}
-                        <li><a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+                        <li><a href="{{ .Permalink }}">{{ .Language.Label }}</a></li>
                         {{ end }}
 
                   </ul>

@@ -10,13 +10,12 @@ avatar: images/default-avatar.jpg  # 请确保 static/images/ 下有这张图
 # 联系方式
 contact:
   email: lchang@shiep.edu.cn
-  phone: +86-13162997351
-  address: 上海电力大学 电气工程学部“
+  address: 上海电力大学电气工程学部
   wechat: lchangme
 
 # 科研亮点 (Highlights)
 highlights:
-  - title: 数据中心冷却控制”
+  - title: 数据中心冷却控制
     icon: 📊
     desc: 绿色数据中心的先进冷却策略。
   

@@ -34,7 +34,7 @@
                             <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
                             <path d="M6 12v5c3 3 9 3 12 0v-5" />
                         </svg>
-                        <a href="{{ .google_scholar }}" target="_blank">Google Scholar</a>
+                        <a href="{{ .google_scholar }}" target="_blank" rel="noopener noreferrer">Google Scholar</a>
                     </div>
                     {{ end }}
 
@@ -71,7 +71,7 @@
 
             {{ if .Params.highlights }}
             <div class="info-block">
-                <h3 class="section-title">Research Highlights</h3>
+                <h3 class="section-title">{{ i18n "researchHighlights" }}</h3>
                 <div class="highlight-grid">
                     {{ range .Params.highlights }}
                     <div class="highlight-card">
@@ -88,7 +88,7 @@
 
             {{ if .Params.work }}
             <div class="info-block">
-                <h3 class="section-title">Work Experience</h3>
+                <h3 class="section-title">{{ i18n "workExperience" }}</h3>
                 <div class="timeline">
                     {{ range .Params.work }}
                     <div class="timeline-item">
@@ -105,7 +105,7 @@
 
             {{ if .Params.education }}
             <div class="info-block">
-                <h3 class="section-title">Education</h3>
+                <h3 class="section-title">{{ i18n "education" }}</h3>
                 <div class="timeline">
                     {{ range .Params.education }}
                     <div class="timeline-item">

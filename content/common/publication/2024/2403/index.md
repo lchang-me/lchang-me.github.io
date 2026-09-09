@@ -3,10 +3,12 @@ title: Stabilization for a class of feedforward nonlinear systems via pulsewidth
 date: 2024-01-01
 authors: "**Chang, L.**, Ge, X., Ding, D., & Fu, C."
 journal: IEEE Transactions on Automatic Control
+volume: "69"
+issue: "3"
+pages: "2075–2082"
 pdf: "2403.pdf"
 doi: "https://doi.org/10.1109/TAC.2023.3317373"
 
-# 这是一个多行字符串，保留格式
 bibtex: |
   @ARTICLE{10256157,
     author={Chang, Le and Ge, Xiaohua and Ding, Derui and Fu, Cheng},
@@ -20,4 +22,3 @@ bibtex: |
   }
 
 ---
-

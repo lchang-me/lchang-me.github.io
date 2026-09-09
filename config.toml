@@ -1,7 +1,7 @@
 
 
-title = "Le's Blog"
-description = 'This is my blog!'
+title = "Le Chang"
+description = "Academic homepage of Le Chang, featuring research in data center control, power systems, and nonlinear control."
 copyright = 'Copyright &copy;  Le  &nbsp;&bull;&nbsp; 2019-{year}'
 baseURL= "https://www.lchang.me/"
 
@@ -18,11 +18,15 @@ enableEmoji=true
   
 [languages]
   [languages.en]
-    languageName = 'En'
-    title = "Home"
+    label = 'English'
+    title = "Le Chang"
+    [languages.en.params]
+      description = "Academic homepage of Le Chang, featuring research in data center control, power systems, and nonlinear control."
   [languages.cn]
-    languageName = 'Cn'
-    title = "首页"
+    label = '中文'
+    title = "常乐"
+    [languages.cn.params]
+      description = "常乐的个人学术主页，介绍数据中心控制、电力系统与非线性控制方向的研究与成果。"
 
 
 [module]

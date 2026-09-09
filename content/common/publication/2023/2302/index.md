@@ -3,10 +3,12 @@ title: Designing a stabilizing control for discrete-time nonlinear feedforward s
 date: 2023-02-01
 authors: "**Chang, L.**, & Fu, C."
 journal: International Journal of Robust and Nonlinear Control
+volume: "33"
+issue: "3"
+pages: "2078–2089"
 pdf: "2302.pdf"
 doi: https://doi.org/10.1002/rnc.6502
 
-# 这是一个多行字符串，保留格式
 bibtex: |
   @article{chang2023designing,
     title={Designing a stabilizing control for discrete-time nonlinear feedforward systems with unknown input saturation},

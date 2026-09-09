@@ -1,4 +1,18 @@
 <meta charset="utf-8">
+{{ $pageTitle := .Site.Title }}
+{{ if and (not .IsHome) .Title }}
+  {{ $translatedTitle := i18n .Title | default .Title }}
+  {{ $pageTitle = printf "%s | %s" $translatedTitle .Site.Title }}
+{{ end }}
+{{ $description := .Description | default .Summary | default .Site.Params.description }}
+<title>{{ $pageTitle }}</title>
+<meta name="description" content="{{ $description | plainify }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" type="image/png" href="{{ "apple-touch-icon.png" | relURL }}" sizes="32x32">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:title" content="{{ $pageTitle }}">
+<meta property="og:description" content="{{ $description | plainify }}">
+<meta property="og:url" content="{{ .Permalink }}">
 {{ $style := resources.Get "sass/main.scss" | css.Sass | resources.Minify }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
 <!-- CSS File -->
@@ -6,7 +20,6 @@
 
 <meta name="format-detection" content="telephone=no" />
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- KaTeX support-->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/katex.min.css"
@@ -20,52 +33,3 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.2/dist/contrib/auto-render.min.js"
   integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
   onload="renderMathInElement(document.body);"></script>
-
-
-<script>
-  function initTheme() {
-    if (window.localStorage.getItem('theme')) return;
-    const time = new Date();
-
-    const prev = localStorage.getItem('date');
-    const date = String(time.getMonth() + 1) + '.' + String(time.getDate());
-
-    const now = time.getTime();
-    let sunrise;
-    let sunset;
-
-    function setBodyClass() {
-      if (now > sunrise && now < sunset) {
-        setTheme('theme-light');
-      } else {
-        setTheme('theme-dark');
-      }
-    }
-
-    if (date !== prev) {
-      fetch('https://api.ipgeolocation.io/astronomy?apiKey=5ed37d85103e4defa5df4c5298ed5215')
-        .then(res => res.json())
-        .then(data => {
-          sunrise = data.sunrise.split(':').map(Number);
-          sunset = data.sunset.split(':').map(Number);
-        })
-        .catch(() => {
-          sunrise = [7, 0];
-          sunset = [19, 0];
-        })
-        .finally(() => {
-          sunrise = time.setHours(sunrise[0], sunrise[1], 0);
-          sunset = time.setHours(sunset[0], sunset[1], 0);
-          setBodyClass();
-          localStorage.setItem('sunrise', sunrise);
-          localStorage.setItem('sunset', sunset);
-        });
-      localStorage.setItem('date', date);
-    } else {
-      sunrise = Number(localStorage.getItem('sunrise'));
-      sunset = Number(localStorage.getItem('sunset'));
-      setBodyClass();
-    }
-
-  }
-</script>

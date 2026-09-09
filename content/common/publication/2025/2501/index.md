@@ -3,10 +3,12 @@ title: "Global sampled-data output feedback stabilization for nonlinear systems 
 date: 2025-08-01
 authors: "**Chang, L.**, Fu, C. & Zhang, H."
 journal: IEEE/CAA Journal of Automatica Sinica
+volume: "12"
+issue: "8"
+pages: "1586–1593"
 pdf: "2501.pdf"
 doi: "https://doi.org/10.1109/JAS.2024.125019"
 
-# 这是一个多行字符串，保留格式
 bibtex: |
   @article{chang202501,
     title={Global sampled-data output feedback stabilization for nonlinear systems via intermittent hold},
@@ -19,4 +21,3 @@ bibtex: |
     doi={10.1109/JAS.2024.125019}
   }
 ---
-
